@@ -162,6 +162,15 @@ hr.small {
     -o-background-size: cover;
 }
 
+
+.charter-members {
+    list-style-type:none;
+    padding:0;
+}
+.charter-members li {
+    display:inline-block;
+}
+
 /* About */
 
 .about,

@@ -180,6 +180,10 @@ hr.small {
     margin-bottom: 30px;
 }
 
+#knightline .knightline-magazine {
+    width:100%;
+}
+
 /* Callout */
 
 .callout,

@@ -13,16 +13,16 @@ Knights of Columbus 14772.org
 
 ### Steps To Code and Deploy
 
-1. Download the codes from Github
+#### Step 1. Download the codes from Github
   - git clone git@github.com:fritzdenim/kofc14772.org.git
-2. Start coding
+#### Step 2. Start coding
   - Open Visual Studio Code
   - Open the folder where you downloaded the codes 
   - Make some changes
-3. Save your changes using git by using these commands.
+#### Step 3. Save your changes using git by using these commands.
   - git add .
   - git commit -m "I changed some text in this page"
-4. Publish your changes
+#### Step 4. Publish your changes
   - git push origin master
-5. Wait and check your deployment in this website after 5 minutes:
+#### Step 5. Wait and check your deployment in this website after 5 minutes:
   - http://stgenknights.com/

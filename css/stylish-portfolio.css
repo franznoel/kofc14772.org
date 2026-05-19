@@ -497,11 +497,24 @@ summary {
     gap: 20px;
 }
 
-.footer-layout p {
+.footer-copy p {
     margin: 0;
 }
 
-.footer-layout a {
+.footer-copy p + p {
+    margin-top: 6px;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 16px;
+}
+
+.maintainer-link {
+    color: #fff;
+    font-weight: 800;
+    text-decoration-color: rgba(215, 170, 69, 0.75);
+    text-underline-offset: 3px;
+}
+
+.footer-layout > a {
     display: inline-grid;
     place-items: center;
     width: 42px;

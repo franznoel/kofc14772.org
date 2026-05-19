@@ -512,8 +512,166 @@ summary {
     text-decoration: none;
 }
 
+.reader-body {
+    background:
+        linear-gradient(90deg, rgba(20, 20, 20, 0.04) 1px, transparent 1px) 0 0 / 28px 28px,
+        #eceff2;
+}
+
+.reader-header {
+    padding: 24px 0 34px;
+    color: #fff;
+    background:
+        linear-gradient(90deg, rgba(13, 39, 70, 0.97), rgba(22, 61, 107, 0.9)),
+        url("../img/bg.jpg") center / cover;
+}
+
+.reader-nav {
+    width: min(1180px, calc(100% - 40px));
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 14px 18px;
+    background: rgba(8, 20, 34, 0.56);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 8px;
+}
+
+.reader-title {
+    width: min(1120px, calc(100% - 40px));
+    margin: 58px auto 0;
+}
+
+.reader-title h1 {
+    margin-bottom: 12px;
+    font-size: clamp(44px, 9vw, 92px);
+}
+
+.reader-title p:last-child {
+    max-width: 720px;
+    color: rgba(255, 255, 255, 0.84);
+    font-size: 23px;
+}
+
+.reader-tools {
+    width: min(1120px, calc(100% - 40px));
+    margin: 34px auto 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.reader-tools span,
+.reader-tools a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 38px;
+    padding: 8px 12px;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.reader-shell {
+    width: min(1240px, calc(100% - 28px));
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 150px minmax(0, 1fr);
+    gap: 26px;
+    align-items: start;
+    padding: 36px 0 70px;
+}
+
+.page-jump {
+    position: sticky;
+    top: 18px;
+    padding: 16px;
+    background: rgba(255, 253, 248, 0.92);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    box-shadow: 0 12px 28px rgba(13, 39, 70, 0.1);
+}
+
+.page-jump strong {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--blue-dark);
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
+.page-jump div {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+.page-jump a {
+    display: inline-grid;
+    place-items: center;
+    min-height: 34px;
+    color: var(--blue-dark);
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    font-weight: 900;
+    text-decoration: none;
+}
+
+.page-jump a:hover,
+.page-jump a:focus {
+    color: #fff;
+    background: var(--blue);
+}
+
+.reader-pages {
+    display: grid;
+    gap: 34px;
+}
+
+.reader-page {
+    scroll-margin-top: 20px;
+    margin: 0;
+    padding: 18px;
+    background: #fff;
+    border: 1px solid rgba(13, 39, 70, 0.12);
+    border-radius: 8px;
+    box-shadow: 0 24px 70px rgba(13, 39, 70, 0.18);
+}
+
+.page-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.reader-page img {
+    width: 100%;
+    max-width: 1050px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 3px;
+}
+
+.reader-footer {
+    margin-top: 0;
+}
+
 @media (max-width: 980px) {
     .site-nav,
+    .reader-nav,
     .split,
     .feature-layout,
     .join-panel,
@@ -522,6 +680,11 @@ summary {
     }
 
     .site-nav {
+        display: grid;
+        justify-items: start;
+    }
+
+    .reader-nav {
         display: grid;
         justify-items: start;
     }
@@ -540,6 +703,23 @@ summary {
 
     .contact-section iframe {
         min-height: 420px;
+    }
+
+    .reader-shell {
+        grid-template-columns: 1fr;
+    }
+
+    .page-jump {
+        position: static;
+    }
+
+    .page-jump div {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .page-jump a {
+        min-width: 38px;
     }
 }
 
@@ -591,5 +771,57 @@ summary {
     .footer-layout {
         align-items: flex-start;
         flex-direction: column;
+    }
+
+    .reader-header {
+        padding-bottom: 26px;
+    }
+
+    .reader-title {
+        margin-top: 42px;
+    }
+
+    .reader-tools {
+        margin-top: 24px;
+    }
+
+    .reader-shell {
+        width: min(100% - 16px, 1240px);
+        padding-top: 18px;
+        gap: 18px;
+    }
+
+    .reader-page {
+        padding: 8px;
+        border-radius: 6px;
+    }
+
+    .reader-pages {
+        gap: 18px;
+    }
+}
+
+@media print {
+    .reader-header,
+    .page-jump,
+    .site-footer {
+        display: none;
+    }
+
+    .reader-body {
+        background: #fff;
+    }
+
+    .reader-shell {
+        display: block;
+        width: 100%;
+        padding: 0;
+    }
+
+    .reader-page {
+        break-after: page;
+        padding: 0;
+        border: 0;
+        box-shadow: none;
     }
 }

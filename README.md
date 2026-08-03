@@ -1,6 +1,25 @@
 # kofc14772.org
 Knights of Columbus 14772.org
 
+## Local development
+
+This site is built with [Eleventy](https://www.11ty.dev/).
+
+```sh
+npm install
+npm start
+```
+
+Eleventy will start a local development server and rebuild the site when files change.
+To create a production build in `_site`, run:
+
+```sh
+npm run build
+```
+
+Pushes to `master` are built and deployed by the GitHub Pages workflow. The repository's
+Pages source must be set to **GitHub Actions**.
+
 ## How To Contribute
 
 ### Requirements

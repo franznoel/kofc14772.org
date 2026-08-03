@@ -1,0 +1,14 @@
+{
+  "name": "stgenknights",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Website for Knights of Columbus St. Genevieve Council 14772",
+  "scripts": {
+    "build": "eleventy",
+    "start": "eleventy --serve"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.2"
+  }
+}

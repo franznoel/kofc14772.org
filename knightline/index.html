@@ -1,0 +1,54 @@
+---
+title: Knightline Archive | St. Genevieve Knights of Columbus Council 14772
+description: Browse the Knightline newsletter archive of Knights of Columbus St. Genevieve Council 14772.
+activePage: knightline
+footerBackHref: "#main"
+footerBackLabel: Back to Knightline archive
+---
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ description }}">
+    <title>{{ title }}</title>
+    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,900" rel="stylesheet" type="text/css">
+    <link href="/css/stylish-portfolio.css" rel="stylesheet">
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="programs-header knightline-header">
+        {% include "site-nav.html" %}
+        <div class="programs-title container">
+            <p class="eyebrow">Council Newsletter</p>
+            <h1>Knightline Archive</h1>
+            <p>Read past issues covering council history, parish events, officer notes, and community life.</p>
+        </div>
+    </header>
+
+    <main id="main" class="knightline-main">
+        <div class="container">
+            <div class="knightline-heading">
+                <p class="eyebrow">Past Issues</p>
+                <h2>Explore the archive.</h2>
+                <p>Issues are arranged from newest to oldest. Newsletter readers open in a new tab.</p>
+            </div>
+
+            <div class="knightline-grid">
+                {% for issue in knightline %}
+                <a class="magazine-card" href="{{ issue.href }}" target="_blank" rel="noopener">
+                    <img src="{{ issue.image }}" alt="{{ issue.alt }}" loading="lazy">
+                    <span>{{ issue.title }}</span>
+                    <small>{% if issue.pdf %}PDF issue{% else %}Read issue{% endif %}</small>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </main>
+    {% include "site-footer.html" %}
+</body>
+
+</html>

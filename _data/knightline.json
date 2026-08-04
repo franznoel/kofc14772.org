@@ -1,0 +1,16 @@
+[
+  { "title": "May 2018", "href": "/files/2018-May.pdf", "image": "/img/2018-may.png", "alt": "Knightline May 2018 cover", "pdf": true },
+  { "title": "December 2017", "href": "/files/2017-December.pdf", "image": "/img/2017-december.png", "alt": "Knightline December 2017 cover", "pdf": true },
+  { "title": "August 2011", "href": "/files/pdfs/2011-08/", "image": "/img/KL0811m01.jpg", "alt": "Knightline August 2011 cover" },
+  { "title": "March 2011", "href": "/files/pdfs/2011-03/", "image": "/img/KL0311m01.jpg", "alt": "Knightline March 2011 cover" },
+  { "title": "January 2011", "href": "/files/pdfs/2011-01/", "image": "/files/pdfs/2011-01/KL0111pp01.jpg", "alt": "Knightline January 2011 cover" },
+  { "title": "September 2010", "href": "/files/pdfs/2010-09/", "image": "/img/KL0910m01.jpg", "alt": "Knightline September 2010 cover" },
+  { "title": "June 2010", "href": "/files/pdfs/2010-06/", "image": "/img/KL0610m01.jpg", "alt": "Knightline June 2010 cover" },
+  { "title": "April–May 2010", "href": "/files/pdfs/2010-05/", "image": "/img/KL0510m01.jpg", "alt": "Knightline April and May 2010 cover" },
+  { "title": "February–March 2010", "href": "/files/pdfs/2010-03/", "image": "/img/KL0310m01.jpg", "alt": "Knightline February and March 2010 cover" },
+  { "title": "November–December 2009", "href": "/files/pdfs/2009-11/", "image": "/img/KL1109m01.jpg", "alt": "Knightline November and December 2009 cover" },
+  { "title": "October 2009", "href": "/files/pdfs/2009-10/", "image": "/img/KL1009m01.jpg", "alt": "Knightline October 2009 cover" },
+  { "title": "September 2009", "href": "/files/pdfs/2009-09/", "image": "/img/KL0909m01.jpg", "alt": "Knightline September 2009 cover" },
+  { "title": "August 2009", "href": "/files/pdfs/2009-08/", "image": "/img/KL0809m01.jpg", "alt": "Knightline August 2009 cover" },
+  { "title": "July 2009", "href": "/files/pdfs/2009-07/", "image": "/img/KL0709m01.jpg", "alt": "Knightline July 2009 cover" }
+]

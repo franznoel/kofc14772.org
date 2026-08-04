@@ -67,7 +67,7 @@ a {
     color: #fff;
     background:
         linear-gradient(90deg, rgba(8, 20, 34, 0.9) 0%, rgba(8, 20, 34, 0.74) 43%, rgba(8, 20, 34, 0.18) 76%, rgba(8, 20, 34, 0.08) 100%),
-        url("../img/stgen-altar-watercolor-hero.png") center / cover no-repeat;
+        url("../img/stgen-church-watercolor-hero.png") center / cover no-repeat;
 }
 
 .site-nav {

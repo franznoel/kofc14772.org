@@ -1,6 +1,9 @@
 ---
 title: Events | St. Genevieve Knights of Columbus Council 14772
 description: Tentative recurring events for Knights of Columbus St. Genevieve Council 14772.
+activePage: events
+footerBackHref: "#main"
+footerBackLabel: Back to events
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -19,22 +22,7 @@ description: Tentative recurring events for Knights of Columbus St. Genevieve Co
     <a class="skip-link" href="#main">Skip to content</a>
 
     <header class="programs-header events-header">
-        <nav class="site-nav" aria-label="Primary navigation">
-            <a class="brand" href="/">
-                <span class="brand-mark">14772</span>
-                <span>St. Genevieve Knights</span>
-            </a>
-            <div class="nav-links">
-                <a href="/">Home</a>
-                <a href="/#about">About</a>
-                <a href="/programs/">Programs</a>
-                <a href="/events/" aria-current="page">Events</a>
-                <a href="https://www.kofc.org/what-we-do/insurance/" target="_blank" rel="noopener">Insurance</a>
-                <a href="/#officers">Officers</a>
-                <a href="/#members">Join</a>
-                <a href="/#contact">Contact</a>
-            </div>
-        </nav>
+        {% include "site-nav.html" %}
 
         <div class="programs-title container">
             <p class="eyebrow">Council 14772</p>
@@ -101,12 +89,7 @@ description: Tentative recurring events for Knights of Columbus St. Genevieve Co
         </div>
     </main>
 
-    <footer class="site-footer">
-        <div class="container footer-layout">
-            <p><strong>Knights of Columbus Council 14772</strong><br>St. Genevieve Parish, Panorama City</p>
-            <a href="#main" aria-label="Back to events"><i class="fa fa-chevron-up" aria-hidden="true"></i></a>
-        </div>
-    </footer>
+    {% include "site-footer.html" %}
 </body>
 
 </html>

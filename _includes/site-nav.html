@@ -1,0 +1,16 @@
+<nav class="site-nav" aria-label="Primary navigation">
+    <a class="brand" href="{% if homePage %}#top{% else %}/{% endif %}">
+        <span class="brand-mark">14772</span>
+        <span>St. Genevieve Knights</span>
+    </a>
+    <div class="nav-links">
+        {% unless homePage %}<a href="/">Home</a>{% endunless %}
+        <a href="{% if homePage %}#about{% else %}/#about{% endif %}">About</a>
+        <a href="/programs/"{% if activePage == "programs" %} aria-current="page"{% endif %}>Programs</a>
+        <a href="/events/"{% if activePage == "events" %} aria-current="page"{% endif %}>Events</a>
+        <a href="https://www.kofc.org/what-we-do/insurance/" target="_blank" rel="noopener">Insurance</a>
+        <a href="{% if homePage %}#officers{% else %}/#officers{% endif %}">Officers</a>
+        <a href="{% if homePage %}#members{% else %}/#members{% endif %}">Join</a>
+        <a href="{% if homePage %}#contact{% else %}/#contact{% endif %}">Contact</a>
+    </div>
+</nav>

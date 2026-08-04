@@ -1,6 +1,9 @@
 ---
 title: Programs | St. Genevieve Knights of Columbus Council 14772
 description: Programs of Knights of Columbus St. Genevieve Council 14772.
+activePage: programs
+footerBackHref: "#main"
+footerBackLabel: Back to programs
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -19,22 +22,7 @@ description: Programs of Knights of Columbus St. Genevieve Council 14772.
     <a class="skip-link" href="#main">Skip to content</a>
 
     <header class="programs-header">
-        <nav class="site-nav" aria-label="Primary navigation">
-            <a class="brand" href="/">
-                <span class="brand-mark">14772</span>
-                <span>St. Genevieve Knights</span>
-            </a>
-            <div class="nav-links">
-                <a href="/">Home</a>
-                <a href="/#about">About</a>
-                <a href="/programs/" aria-current="page">Programs</a>
-                <a href="/events/">Events</a>
-                <a href="https://www.kofc.org/what-we-do/insurance/" target="_blank" rel="noopener">Insurance</a>
-                <a href="/#officers">Officers</a>
-                <a href="/#members">Join</a>
-                <a href="/#contact">Contact</a>
-            </div>
-        </nav>
+        {% include "site-nav.html" %}
 
         <div class="programs-title container">
             <p class="eyebrow">Faith in Action</p>
@@ -77,12 +65,7 @@ description: Programs of Knights of Columbus St. Genevieve Council 14772.
         </div>
     </main>
 
-    <footer class="site-footer">
-        <div class="container footer-layout">
-            <p><strong>Knights of Columbus Council 14772</strong><br>St. Genevieve Parish, Panorama City</p>
-            <a href="#main" aria-label="Back to programs"><i class="fa fa-chevron-up" aria-hidden="true"></i></a>
-        </div>
-    </footer>
+    {% include "site-footer.html" %}
 
     <script src="/js/program-tabs.js"></script>
 </body>

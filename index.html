@@ -1,6 +1,10 @@
 ---
 title: St. Genevieve Knights of Columbus Council 14772
 description: Knights of Columbus St. Genevieve Council 14772 in Panorama City, California.
+homePage: true
+showMaintainer: true
+footerBackHref: "#top"
+footerBackLabel: Back to top
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -33,21 +37,7 @@ description: Knights of Columbus St. Genevieve Council 14772 in Panorama City, C
     <a class="skip-link" href="#main">Skip to content</a>
 
     <header id="top" class="site-hero">
-        <nav class="site-nav" aria-label="Primary navigation">
-            <a class="brand" href="#top">
-                <span class="brand-mark">14772</span>
-                <span>St. Genevieve Knights</span>
-            </a>
-            <div class="nav-links">
-                <a href="#about">About</a>
-                <a href="/programs/">Programs</a>
-                <a href="/events/">Events</a>
-                <a href="https://www.kofc.org/what-we-do/insurance/" target="_blank" rel="noopener">Insurance</a>
-                <a href="#officers">Officers</a>
-                <a href="#members">Join</a>
-                <a href="#contact">Contact</a>
-            </div>
-        </nav>
+        {% include "site-nav.html" %}
 
         <div class="hero-content">
             <div class="hero-identity">
@@ -166,15 +156,7 @@ description: Knights of Columbus St. Genevieve Council 14772 in Panorama City, C
         </section>
     </main>
 
-    <footer class="site-footer">
-        <div class="container footer-layout">
-            <div class="footer-copy">
-                <p><strong>Knights of Columbus Council 14772</strong><br>St. Genevieve Parish, Panorama City</p>
-                <p>Website maintained by <a class="maintainer-link" href="https://franz.tanglao.org" target="_blank" rel="noopener">Franz Tanglao</a></p>
-            </div>
-            <a href="#top" aria-label="Back to top"><i class="fa fa-chevron-up" aria-hidden="true"></i></a>
-        </div>
-    </footer>
+    {% include "site-footer.html" %}
 </body>
 
 </html>

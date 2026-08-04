@@ -434,11 +434,93 @@ summary {
     color: var(--muted);
 }
 
-.join-section {
+.officers-section {
     color: #fff;
     background:
-        linear-gradient(90deg, rgba(13, 39, 70, 0.92), rgba(13, 39, 70, 0.7)),
-        url("../img/bg.jpg") center / cover fixed;
+        linear-gradient(135deg, rgba(13, 39, 70, 0.98), rgba(22, 61, 107, 0.94)),
+        url("../img/bg.jpg") center / cover;
+}
+
+.officers-heading {
+    max-width: 760px;
+    margin-bottom: 40px;
+}
+
+.officers-heading .eyebrow,
+.chaplain-card .eyebrow {
+    color: var(--gold);
+}
+
+.officers-heading > p:last-child {
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 21px;
+}
+
+.officers-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.5fr);
+    gap: 28px;
+    align-items: start;
+}
+
+.officers-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1px;
+    margin: 0;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 8px;
+}
+
+.officers-list div {
+    padding: 19px 22px;
+    background: rgba(8, 20, 34, 0.56);
+}
+
+.officers-list dt {
+    color: var(--gold);
+    font-size: 15px;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.officers-list dd {
+    margin: 3px 0 0;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.chaplain-card {
+    padding: 34px;
+    color: var(--ink);
+    background: var(--paper);
+    border-top: 5px solid var(--gold);
+    border-radius: 8px;
+    box-shadow: 0 22px 60px rgba(0, 0, 0, 0.28);
+}
+
+.chaplain-card i {
+    display: inline-grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    margin-bottom: 26px;
+    color: var(--blue-dark);
+    background: var(--gold);
+    border-radius: 50%;
+}
+
+.chaplain-card p:last-child {
+    margin-bottom: 0;
+    color: var(--muted);
+}
+
+.join-section {
+    color: var(--ink);
+    background: var(--paper);
 }
 
 .join-panel {
@@ -450,14 +532,15 @@ summary {
 
 .join-panel p {
     max-width: 760px;
-    color: rgba(255, 255, 255, 0.86);
+    color: var(--muted);
 }
 
 .contact-section {
     min-height: 560px;
     display: grid;
     grid-template-columns: minmax(320px, 0.72fr) minmax(0, 1fr);
-    background: #fff;
+    color: #fff;
+    background: var(--blue-dark);
 }
 
 .contact-card {
@@ -468,11 +551,11 @@ summary {
 }
 
 .contact-card p {
-    color: var(--muted);
+    color: rgba(255, 255, 255, 0.78);
 }
 
 .contact-card a {
-    color: var(--blue);
+    color: var(--gold);
     font-weight: 800;
 }
 
@@ -687,6 +770,7 @@ summary {
     .reader-nav,
     .split,
     .feature-layout,
+    .officers-layout,
     .join-panel,
     .contact-section {
         grid-template-columns: 1fr;
@@ -707,6 +791,10 @@ summary {
     }
 
     .value-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .officers-list {
         grid-template-columns: 1fr;
     }
 

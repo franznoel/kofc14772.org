@@ -8,6 +8,15 @@
         <a href="{% if homePage %}#about{% else %}/#about{% endif %}">About</a>
         <a href="/programs/"{% if activePage == "programs" %} aria-current="page"{% endif %}>Programs</a>
         <a href="/events/"{% if activePage == "events" %} aria-current="page"{% endif %}>Events</a>
+        <div class="nav-dropdown">
+            <a href="/announcements/"{% if activePage == "announcements" %} aria-current="page"{% endif %}>Announcements <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+            <div class="nav-submenu" aria-label="Upcoming announcements">
+                <span>Upcoming</span>
+                {% for item in announcements %}
+                    {% if item.upcoming %}<a href="/announcements/{{ item.slug }}/"><time datetime="{{ item.date }}">{{ item.dateDisplay }}</time>{{ item.title }}</a>{% endif %}
+                {% endfor %}
+            </div>
+        </div>
         <a href="https://www.kofc.org/what-we-do/insurance/" target="_blank" rel="noopener">Insurance</a>
         <a href="{% if homePage %}#officers{% else %}/#officers{% endif %}">Officers</a>
         <a href="{% if homePage %}#members{% else %}/#members{% endif %}">Join</a>

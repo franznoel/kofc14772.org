@@ -1,0 +1,11 @@
+<article class="announcement-card">
+    <a class="announcement-card-image" href="/announcements/{{ item.slug }}/">
+        <img src="{{ item.image }}" alt="{{ item.imageAlt }}" loading="lazy">
+    </a>
+    <div class="announcement-card-copy">
+        <time datetime="{{ item.date }}">{{ item.dateDisplay }}</time>
+        <h2><a href="/announcements/{{ item.slug }}/">{{ item.title }}</a></h2>
+        <p>{{ item.excerpt }}</p>
+        <a class="announcement-more" href="/announcements/{{ item.slug }}/">View announcement <span aria-hidden="true">→</span></a>
+    </div>
+</article>

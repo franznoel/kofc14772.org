@@ -1,0 +1,67 @@
+---
+pagination:
+  data: announcements
+  size: 1
+  alias: announcement
+permalink: "/announcements/{{ announcement.slug }}/index.html"
+eleventyComputed:
+  title: "{{ announcement.title }} | Council 14772"
+  description: "{{ announcement.excerpt }}"
+activePage: announcements
+footerBackHref: "/announcements/"
+footerBackLabel: Back to all announcements
+---
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ description }}">
+    <title>{{ title }}</title>
+    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,900" rel="stylesheet" type="text/css">
+    <link href="/css/stylish-portfolio.css" rel="stylesheet">
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="announcement-detail-header">
+        {% include "site-nav.html" %}
+    </header>
+
+    <main id="main" class="announcement-detail-main">
+        <article class="container announcement-detail">
+            <div class="announcement-detail-copy">
+                <a class="announcement-back" href="/announcements/"><span aria-hidden="true">←</span> All announcements</a>
+                <time datetime="{{ announcement.date }}">{{ announcement.dateDisplay }}</time>
+                <h1>{{ announcement.title }}</h1>
+                <p class="announcement-lead">{{ announcement.description }}</p>
+
+                <section class="announcement-facts" aria-label="Announcement details">
+                    <h2>Event details</h2>
+                    <div>
+                        <h3><i class="fa fa-clock-o" aria-hidden="true"></i> Schedule</h3>
+                        <ul>{% for detail in announcement.schedule %}<li>{{ detail }}</li>{% endfor %}</ul>
+                    </div>
+                    <div>
+                        <h3><i class="fa fa-map-marker" aria-hidden="true"></i> Location</h3>
+                        <p>{{ announcement.location }}</p>
+                    </div>
+                    <div>
+                        <h3><i class="fa fa-phone" aria-hidden="true"></i> Contact</h3>
+                        <ul>{% for contact in announcement.contacts %}<li>{{ contact }}</li>{% endfor %}</ul>
+                    </div>
+                </section>
+            </div>
+
+            <figure class="announcement-poster">
+                <img src="{{ announcement.image }}" alt="{{ announcement.imageAlt }}">
+                <figcaption>Official event flyer</figcaption>
+            </figure>
+        </article>
+    </main>
+    {% include "site-footer.html" %}
+</body>
+
+</html>

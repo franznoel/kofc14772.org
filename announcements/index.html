@@ -1,0 +1,49 @@
+---
+title: Announcements | St. Genevieve Knights of Columbus Council 14772
+description: Announcements and upcoming activities from Knights of Columbus St. Genevieve Council 14772.
+activePage: announcements
+footerBackHref: "#main"
+footerBackLabel: Back to announcements
+---
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ description }}">
+    <title>{{ title }}</title>
+    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,900" rel="stylesheet" type="text/css">
+    <link href="/css/stylish-portfolio.css" rel="stylesheet">
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="programs-header announcements-header">
+        {% include "site-nav.html" %}
+        <div class="programs-title container">
+            <p class="eyebrow">Council News</p>
+            <h1>Announcements</h1>
+            <p>Upcoming events, invitations, and important news from St. Genevieve Council 14772.</p>
+        </div>
+    </header>
+
+    <main id="main" class="announcements-main">
+        <div class="container">
+            <div class="announcements-heading">
+                <p class="eyebrow">Upcoming</p>
+                <h2>Save the date.</h2>
+                <p>Announcements are arranged chronologically by event date.</p>
+            </div>
+            <div class="announcements-list">
+                {% for item in announcements %}
+                    {% include "announcement-card.html" %}
+                {% endfor %}
+            </div>
+        </div>
+    </main>
+    {% include "site-footer.html" %}
+</body>
+
+</html>

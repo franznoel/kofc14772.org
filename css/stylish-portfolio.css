@@ -131,8 +131,35 @@ a {
 
 .hero-content {
     width: min(760px, calc(100% - 40px));
-    margin: 12vh auto 8vh max(20px, calc((100vw - 1180px) / 2));
+    margin: 7vh auto 5vh max(20px, calc((100vw - 1180px) / 2));
     text-align: left;
+}
+
+.hero-identity {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 22px;
+}
+
+.hero-identity img {
+    width: 104px;
+    height: 104px;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.3));
+}
+
+.hero-identity .eyebrow {
+    margin: 0;
+    font-size: 21px;
+    line-height: 1.35;
+    letter-spacing: 0.06em;
+}
+
+.hero-content h1 {
+    max-width: 720px;
+    font-size: clamp(42px, 5.5vw, 68px);
+    line-height: 1;
 }
 
 .eyebrow {
@@ -848,6 +875,24 @@ summary {
     .hero-content {
         width: calc(100% - 40px);
         margin: 60px 20px 44px;
+    }
+
+    .hero-identity {
+        gap: 14px;
+        margin-bottom: 20px;
+    }
+
+    .hero-identity img {
+        width: 78px;
+        height: 78px;
+    }
+
+    .hero-identity .eyebrow {
+        font-size: 17px;
+    }
+
+    .hero-content h1 {
+        font-size: clamp(38px, 10.5vw, 52px);
     }
 
     .hero-copy,

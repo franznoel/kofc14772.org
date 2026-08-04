@@ -601,6 +601,94 @@ summary {
     background: var(--ink);
 }
 
+.programs-header {
+    padding: 24px 0 80px;
+    color: #fff;
+    background:
+        linear-gradient(110deg, rgba(8, 20, 34, 0.96), rgba(22, 61, 107, 0.86)),
+        url("../img/stgen-church-watercolor-hero.png") center / cover;
+}
+
+.programs-title {
+    padding-top: 86px;
+}
+
+.programs-title .eyebrow {
+    color: var(--gold);
+}
+
+.programs-title h1 {
+    margin-bottom: 18px;
+    font-size: clamp(52px, 9vw, 100px);
+}
+
+.programs-title > p:last-child {
+    max-width: 700px;
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 22px;
+}
+
+.programs-main {
+    min-height: 560px;
+    padding: 82px 0 110px;
+    background: var(--paper);
+}
+
+.program-tabs {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--line);
+}
+
+.program-tabs button {
+    flex: 0 0 auto;
+    padding: 13px 18px;
+    color: var(--blue-dark);
+    background: transparent;
+    border: 0;
+    border-radius: 6px;
+    font: inherit;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.program-tabs button:hover,
+.program-tabs button:focus-visible {
+    background: var(--cream);
+}
+
+.program-tabs button[aria-selected="true"] {
+    color: #fff;
+    background: var(--blue);
+}
+
+.program-panel {
+    min-height: 280px;
+    margin-top: 38px;
+    padding: 48px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-top: 5px solid var(--gold);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.program-panel[hidden] {
+    display: none;
+}
+
+.program-panel h2 {
+    max-width: 700px;
+}
+
+.program-panel > p:last-child {
+    max-width: 650px;
+    color: var(--muted);
+    font-size: 20px;
+}
+
 .footer-layout {
     display: flex;
     align-items: center;
@@ -916,6 +1004,23 @@ summary {
 
     .section {
         padding: 68px 0;
+    }
+
+    .programs-header {
+        padding-bottom: 58px;
+    }
+
+    .programs-title {
+        padding-top: 58px;
+    }
+
+    .programs-main {
+        padding: 58px 0 78px;
+    }
+
+    .program-panel {
+        min-height: 240px;
+        padding: 32px 24px;
     }
 
     .magazine-grid {

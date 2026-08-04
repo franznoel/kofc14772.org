@@ -689,6 +689,95 @@ summary {
     font-size: 20px;
 }
 
+.tentative-badge {
+    display: inline-flex;
+    padding: 7px 12px;
+    color: var(--blue-dark);
+    background: var(--gold);
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.events-main {
+    padding: 88px 0 112px;
+    background: var(--paper);
+}
+
+.events-intro {
+    max-width: 760px;
+    margin-bottom: 42px;
+}
+
+.events-intro > p:last-child {
+    color: var(--muted);
+    font-size: 20px;
+}
+
+.events-list {
+    display: grid;
+    gap: 16px;
+}
+
+.event-card {
+    display: grid;
+    grid-template-columns: 150px minmax(0, 1fr);
+    gap: 28px;
+    align-items: center;
+    padding: 28px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    box-shadow: 0 14px 36px rgba(13, 39, 70, 0.08);
+}
+
+.event-date {
+    display: grid;
+    place-items: center;
+    min-height: 104px;
+    padding: 16px;
+    color: #fff;
+    background: var(--blue-dark);
+    border-bottom: 5px solid var(--gold);
+    border-radius: 7px;
+    text-align: center;
+}
+
+.event-date strong,
+.event-date span {
+    display: block;
+}
+
+.event-date strong {
+    font-size: 28px;
+    line-height: 1;
+}
+
+.event-date span {
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 800;
+}
+
+.event-card h3 {
+    color: var(--blue-dark);
+}
+
+.event-card p {
+    margin-bottom: 3px;
+    color: var(--muted);
+}
+
+.event-card i {
+    width: 22px;
+    color: var(--red);
+}
+
+.event-time {
+    font-weight: 800;
+}
+
 .footer-layout {
     display: flex;
     align-items: center;
@@ -1021,6 +1110,22 @@ summary {
     .program-panel {
         min-height: 240px;
         padding: 32px 24px;
+    }
+
+    .events-main {
+        padding: 58px 0 78px;
+    }
+
+    .event-card {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 22px;
+    }
+
+    .event-date {
+        justify-items: start;
+        min-height: 0;
+        text-align: left;
     }
 
     .magazine-grid {

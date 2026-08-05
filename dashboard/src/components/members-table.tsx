@@ -1,15 +1,23 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useTransition } from "react";
+import { useRouter } from "next/navigation";
 import type { Member } from "@/lib/members";
 
 type SortKey = "fullName" | "phone" | "email" | "status";
 type SortDirection = "ascending" | "descending";
+type EditableField = "fullName" | "rosterNumber" | "email" | "phone";
 
 export function MembersTable({ members }: { members: Member[] }) {
+  const router = useRouter();
   const [query, setQuery] = useState("");
   const [sortKey, setSortKey] = useState<SortKey>("fullName");
   const [direction, setDirection] = useState<SortDirection>("ascending");
+  const [editing, setEditing] = useState<{ memberId: string; field: EditableField } | null>(null);
+  const [draft, setDraft] = useState("");
+  const [updatingId, setUpdatingId] = useState<string | null>(null);
+  const [actionError, setActionError] = useState<string | null>(null);
+  const [isPending, startTransition] = useTransition();
 
   const sortedMembers = useMemo(() => {
     const multiplier = direction === "ascending" ? 1 : -1;
@@ -65,6 +73,50 @@ export function MembersTable({ members }: { members: Member[] }) {
     setDirection("ascending");
   }
 
+  function startEditing(member: Member, field: EditableField) {
+    setEditing({ memberId: member.id, field });
+    setDraft(String(member[field] ?? ""));
+    setActionError(null);
+  }
+
+  function saveField(member: Member, field: EditableField) {
+    const value = draft.trim();
+    if (field === "fullName" && !value) {
+      setActionError("Enter a member name.");
+      return;
+    }
+    if (field === "rosterNumber" && (!/^\d+$/.test(value) || Number(value) < 1)) {
+      setActionError("Roster number must be a positive whole number.");
+      return;
+    }
+
+    updateMember(member.id, { [field]: field === "rosterNumber" ? Number(value) : value }, () => setEditing(null));
+  }
+
+  function updateMember(memberId: string, changes: Record<string, unknown>, onSuccess?: () => void) {
+    setUpdatingId(memberId);
+    setActionError(null);
+    startTransition(async () => {
+      try {
+        const response = await fetch(`/api/members/${encodeURIComponent(memberId)}`, {
+          method: "PATCH",
+          credentials: "same-origin",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify(changes),
+        });
+        const result = await response.json() as { error?: string };
+        if (!response.ok) throw new Error(result.error || "Unable to update this member.");
+        onSuccess?.();
+        router.refresh();
+      } catch (error) {
+        setActionError(error instanceof Error ? error.message : "Unable to update this member.");
+        router.refresh();
+      } finally {
+        setUpdatingId(null);
+      }
+    });
+  }
+
   return (
     <div className="mt-8 overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-sm">
       <div className="flex flex-col gap-3 border-b border-stone-200 bg-white px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
@@ -91,9 +143,10 @@ export function MembersTable({ members }: { members: Member[] }) {
             </button>
           ) : null}
         </div>
-        <p aria-live="polite" className="shrink-0 text-sm text-slate-500">
-          {sortedMembers.length} {sortedMembers.length === 1 ? "member" : "members"}
-        </p>
+        <div className="text-right">
+          <p aria-live="polite" className="shrink-0 text-sm text-slate-500">{sortedMembers.length} {sortedMembers.length === 1 ? "member" : "members"}</p>
+          {actionError ? <p className="mt-1 text-sm text-red-700" role="alert">{actionError}</p> : null}
+        </div>
       </div>
       <div className="overflow-x-auto">
         <table className="w-full min-w-[760px] text-left">
@@ -116,17 +169,35 @@ export function MembersTable({ members }: { members: Member[] }) {
             {sortedMembers.map((member) => (
               <tr className="transition hover:bg-stone-50" key={member.id}>
                 <td className="px-6 py-4">
-                  <p className="font-semibold text-slate-900">{member.fullName}</p>
-                  <p className="mt-1 text-xs text-slate-400">Roster #{member.rosterNumber}</p>
+                  {editing?.memberId === member.id && editing.field === "fullName" ? (
+                    <InlineEditor draft={draft} inputMode="text" label={`Name for ${member.fullName}`} onCancel={() => setEditing(null)} onChange={setDraft} onSave={() => saveField(member, "fullName")} pending={isPending && updatingId === member.id} />
+                  ) : (
+                    <button aria-label={`Edit name for ${member.fullName}`} className="block text-left font-semibold text-slate-900 decoration-amber-500 underline-offset-4 hover:text-amber-700 hover:underline" onClick={() => startEditing(member, "fullName")} type="button">{member.fullName}</button>
+                  )}
+                  <div className="mt-1">
+                    {editing?.memberId === member.id && editing.field === "rosterNumber" ? (
+                      <InlineEditor draft={draft} inputMode="numeric" label={`Roster number for ${member.fullName}`} onCancel={() => setEditing(null)} onChange={setDraft} onSave={() => saveField(member, "rosterNumber")} pending={isPending && updatingId === member.id} />
+                    ) : (
+                      <button aria-label={`Edit roster number for ${member.fullName}`} className="text-xs text-slate-400 decoration-amber-500 underline-offset-2 hover:text-amber-700 hover:underline" onClick={() => startEditing(member, "rosterNumber")} type="button">Roster #{member.rosterNumber}</button>
+                    )}
+                  </div>
                 </td>
                 <td className="px-6 py-4 text-sm">
-                  {member.phone ? <a className="text-slate-700 hover:text-amber-700" href={`tel:${member.phone.replace(/[^\d+]/g, "")}`}>{member.phone}</a> : <Missing />}
+                  {editing?.memberId === member.id && editing.field === "phone" ? (
+                    <InlineEditor draft={draft} inputMode="tel" label={`Phone for ${member.fullName}`} onCancel={() => setEditing(null)} onChange={setDraft} onSave={() => saveField(member, "phone")} pending={isPending && updatingId === member.id} />
+                  ) : (
+                    <button aria-label={`Edit phone for ${member.fullName}`} className="text-left text-slate-700 decoration-amber-500 underline-offset-4 hover:text-amber-700 hover:underline" onClick={() => startEditing(member, "phone")} type="button">{member.phone || "Not provided"}</button>
+                  )}
                 </td>
                 <td className="px-6 py-4 text-sm">
-                  {member.email ? <a className="text-slate-700 hover:text-amber-700" href={`mailto:${member.email}`}>{member.email}</a> : <Missing />}
+                  {editing?.memberId === member.id && editing.field === "email" ? (
+                    <InlineEditor draft={draft} inputMode="email" label={`Email for ${member.fullName}`} onCancel={() => setEditing(null)} onChange={setDraft} onSave={() => saveField(member, "email")} pending={isPending && updatingId === member.id} />
+                  ) : (
+                    <button aria-label={`Edit email for ${member.fullName}`} className="text-left text-slate-700 decoration-amber-500 underline-offset-4 hover:text-amber-700 hover:underline" onClick={() => startEditing(member, "email")} type="button">{member.email || "Not provided"}</button>
+                  )}
                 </td>
                 <td className="px-6 py-4">
-                  {member.needsReview ? <span className="rounded-full bg-amber-100 px-2.5 py-1 text-xs font-semibold text-amber-800">Needs review</span> : <span className="rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-700">Active</span>}
+                  <select aria-label={`Status for ${member.fullName}`} className={`rounded-lg border px-2.5 py-1.5 text-sm font-medium ${member.needsReview ? "border-amber-200 bg-amber-50 text-amber-800" : "border-emerald-200 bg-emerald-50 text-emerald-700"}`} disabled={isPending && updatingId === member.id} onChange={(event) => updateMember(member.id, { status: event.target.value })} value={member.needsReview ? "needs_review" : "active"}><option value="active">Active</option><option value="needs_review">Needs review</option></select>
                 </td>
               </tr>
             ))}
@@ -168,6 +239,21 @@ function comparableValue(member: Member, sortKey: SortKey): string | null {
   return sortKey === "phone" ? value.replace(/\D/g, "") : value;
 }
 
-function Missing() {
-  return <span className="text-slate-400">Not provided</span>;
+function InlineEditor({ draft, inputMode, label, onCancel, onChange, onSave, pending }: {
+  draft: string;
+  inputMode: "text" | "numeric" | "email" | "tel";
+  label: string;
+  onCancel: () => void;
+  onChange: (value: string) => void;
+  onSave: () => void;
+  pending: boolean;
+}) {
+  return (
+    <form className="flex min-w-72 items-center gap-2" onSubmit={(event) => { event.preventDefault(); onSave(); }}>
+      <label className="sr-only" htmlFor={`edit-${label}`}>{label}</label>
+      <input autoFocus className="min-w-0 flex-1 rounded-lg border border-amber-400 bg-white px-2.5 py-1.5 text-sm text-slate-900 outline-none ring-2 ring-amber-500/20" disabled={pending} id={`edit-${label}`} inputMode={inputMode} onChange={(event) => onChange(event.target.value)} type={inputMode === "email" ? "email" : "text"} value={draft} />
+      <button className="rounded-lg bg-amber-700 px-3 py-1.5 text-xs font-semibold text-white hover:bg-amber-800 disabled:opacity-60" disabled={pending} type="submit">{pending ? "Saving…" : "Save"}</button>
+      <button className="rounded-lg border border-stone-300 px-3 py-1.5 text-xs font-semibold text-slate-600 hover:bg-stone-100" disabled={pending} onClick={onCancel} type="button">Cancel</button>
+    </form>
+  );
 }

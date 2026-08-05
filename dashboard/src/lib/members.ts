@@ -44,3 +44,28 @@ export async function countMembers(): Promise<number> {
 
   return Number(result?.count ?? 0);
 }
+
+export async function updateMember(
+  memberId: string,
+  changes: {
+    rosterNumber?: number;
+    fullName?: string;
+    phone?: string | null;
+    email?: string | null;
+    needsReview?: boolean;
+  },
+): Promise<boolean> {
+  const update: Record<string, unknown> = { updated_at: new Date() };
+
+  if (changes.rosterNumber !== undefined) update.roster_number = changes.rosterNumber;
+  if (changes.fullName !== undefined) update.full_name = changes.fullName;
+  if (changes.phone !== undefined) update.phone = changes.phone;
+  if (changes.email !== undefined) update.email = changes.email;
+  if (changes.needsReview !== undefined) update.needs_review = changes.needsReview;
+
+  const updated = await database()("members")
+    .where({ id: memberId, is_active: true })
+    .update(update);
+
+  return updated > 0;
+}

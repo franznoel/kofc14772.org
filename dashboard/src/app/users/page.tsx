@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { AddUserForm } from "@/components/add-user-form";
 import { UserMenu } from "@/components/user-menu";
 import { UsersTable } from "@/components/users-table";
 import { auth } from "@/lib/auth/server";
@@ -31,9 +32,9 @@ export default async function UsersPage() {
         <nav className="mb-8 flex items-center gap-2 text-sm"><Link className="font-medium text-slate-500 transition hover:text-amber-700" href="/">Dashboard</Link><span className="text-slate-300">/</span><span className="font-semibold text-slate-900">Users</span></nav>
         <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
           <div><p className="text-sm font-semibold text-amber-700">Access</p><h2 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">Dashboard users</h2><p className="mt-3 text-slate-600">Accounts registered through Neon Auth.</p></div>
-          {!result.unavailable ? <div className="flex flex-wrap gap-3"><Stat label="Users" value={result.users.length} /><Stat label="Verified" value={verifiedCount} /><Stat label="Banned" value={bannedCount} highlight={bannedCount > 0} /></div> : null}
+          {!result.unavailable ? <div className="flex flex-col items-start gap-4 sm:items-end"><AddUserForm /><div className="flex flex-wrap gap-3"><Stat label="Users" value={result.users.length} /><Stat label="Verified" value={verifiedCount} /><Stat label="Banned" value={bannedCount} highlight={bannedCount > 0} /></div></div> : null}
         </div>
-        {result.unavailable ? <div className="mt-8 rounded-2xl border border-amber-200 bg-amber-50 p-6 text-amber-950"><h3 className="font-semibold">User directory is unavailable</h3><p className="mt-2 text-sm leading-6">Check the Neon database connection and confirm Neon Auth has created the <code className="rounded bg-amber-100 px-1.5 py-0.5">neon_auth.user</code> table.</p></div> : <UsersTable users={result.users} />}
+        {result.unavailable ? <div className="mt-8 rounded-2xl border border-amber-200 bg-amber-50 p-6 text-amber-950"><h3 className="font-semibold">User directory is unavailable</h3><p className="mt-2 text-sm leading-6">Check the Neon database connection and confirm Neon Auth has created the <code className="rounded bg-amber-100 px-1.5 py-0.5">neon_auth.user</code> table.</p></div> : <UsersTable currentUserId={session?.user?.id} users={result.users} />}
       </section>
     </main>
   );

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { MembersTable } from "@/components/members-table";
 import { UserMenu } from "@/components/user-menu";
 import { auth } from "@/lib/auth/server";
 import { listMembers, type Member } from "@/lib/members";
@@ -55,39 +56,7 @@ export default async function MembersPage() {
             <p className="mt-2 text-sm leading-6">Connect the real Neon database and run <code className="rounded bg-amber-100 px-1.5 py-0.5">npm run db:migrate</code> from the dashboard folder.</p>
           </div>
         ) : (
-          <div className="mt-8 overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-sm">
-            <div className="overflow-x-auto">
-              <table className="w-full min-w-[760px] text-left">
-                <thead className="border-b border-stone-200 bg-stone-50 text-xs uppercase tracking-wider text-slate-500">
-                  <tr>
-                    <th className="px-6 py-4 font-semibold">Member</th>
-                    <th className="px-6 py-4 font-semibold">Phone</th>
-                    <th className="px-6 py-4 font-semibold">Email</th>
-                    <th className="px-6 py-4 font-semibold">Status</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-stone-100">
-                  {result.members.map((member) => (
-                    <tr className="transition hover:bg-stone-50" key={member.id}>
-                      <td className="px-6 py-4">
-                        <p className="font-semibold text-slate-900">{member.fullName}</p>
-                        <p className="mt-1 text-xs text-slate-400">Roster #{member.rosterNumber}</p>
-                      </td>
-                      <td className="px-6 py-4 text-sm">
-                        {member.phone ? <a className="text-slate-700 hover:text-amber-700" href={`tel:${member.phone.replace(/[^\d+]/g, "")}`}>{member.phone}</a> : <Missing />}
-                      </td>
-                      <td className="px-6 py-4 text-sm">
-                        {member.email ? <a className="text-slate-700 hover:text-amber-700" href={`mailto:${member.email}`}>{member.email}</a> : <Missing />}
-                      </td>
-                      <td className="px-6 py-4">
-                        {member.needsReview ? <span className="rounded-full bg-amber-100 px-2.5 py-1 text-xs font-semibold text-amber-800">Needs review</span> : <span className="rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-700">Active</span>}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
+          <MembersTable members={result.members} />
         )}
       </section>
     </main>
@@ -96,8 +65,4 @@ export default async function MembersPage() {
 
 function Stat({ label, value, highlight = false }: { label: string; value: number; highlight?: boolean }) {
   return <div className={`min-w-24 rounded-xl border px-4 py-3 ${highlight ? "border-amber-200 bg-amber-50" : "border-stone-200 bg-white"}`}><p className="text-2xl font-bold">{value}</p><p className="text-xs font-medium text-slate-500">{label}</p></div>;
-}
-
-function Missing() {
-  return <span className="text-slate-400">Not provided</span>;
 }

@@ -1,5 +1,3 @@
-const members = [];
-
 /** @param {import('knex').Knex} knex */
 exports.up = async function up(knex) {
   await knex.schema.createTable("members", (table) => {
@@ -14,15 +12,6 @@ exports.up = async function up(knex) {
     table.index(["full_name"]);
   });
 
-  await knex("members").insert(
-    members.map(([roster_number, full_name, phone, email, needs_review]) => ({
-      roster_number,
-      full_name,
-      phone,
-      email,
-      needs_review,
-    })),
-  );
 };
 
 /** @param {import('knex').Knex} knex */

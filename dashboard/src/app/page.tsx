@@ -14,8 +14,6 @@ export default async function Home() {
   ]);
 
   const sections = [
-    { title: "Announcements", description: "Draft and publish updates for the council website.", count: "—", href: null },
-    { title: "Events", description: "Manage meetings, services, and community events.", count: "—", href: null },
     { title: "Members", description: "Maintain member records and administrative access.", count: memberCount ?? "—", href: "/members" },
     { title: "Users", description: "Review accounts registered through Neon Auth.", count: userCount ?? "—", href: "/users" },
   ];
@@ -41,7 +39,7 @@ export default async function Home() {
           The application foundation is ready. Authentication and live council data will be connected next.
         </p>
 
-        <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+        <div className="mt-10 grid gap-5 md:grid-cols-2">
           {sections.map((section) => (
             <article key={section.title} className="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm">
               <div className="flex items-start justify-between gap-4">

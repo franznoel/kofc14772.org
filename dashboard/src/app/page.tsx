@@ -1,10 +1,17 @@
+import { UserMenu } from "@/components/user-menu";
+import { auth } from "@/lib/auth/server";
+
 const sections = [
   { title: "Announcements", description: "Draft and publish updates for the council website.", count: "—" },
   { title: "Events", description: "Manage meetings, services, and community events.", count: "—" },
   { title: "Members", description: "Maintain member records and administrative access.", count: "—" },
 ];
 
-export default function Home() {
+export const dynamic = "force-dynamic";
+
+export default async function Home() {
+  const { data: session } = await auth.getSession();
+
   return (
     <main className="min-h-screen bg-stone-100 text-slate-950">
       <header className="border-b border-slate-800 bg-slate-950 text-white">
@@ -13,13 +20,15 @@ export default function Home() {
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-amber-400">Council 14772</p>
             <h1 className="mt-1 text-xl font-semibold">St. Genevieve Knights</h1>
           </div>
-          <span className="rounded-full border border-slate-700 px-3 py-1 text-sm text-slate-300">Dashboard preview</span>
+          <UserMenu name={session?.user?.name} email={session?.user?.email} />
         </div>
       </header>
 
       <section className="mx-auto max-w-6xl px-6 py-12">
         <p className="text-sm font-semibold text-amber-700">Administration</p>
-        <h2 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">Welcome to the council dashboard</h2>
+        <h2 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
+          Welcome{session?.user?.name ? `, ${session.user.name}` : ""}
+        </h2>
         <p className="mt-4 max-w-2xl text-base leading-7 text-slate-600">
           The application foundation is ready. Authentication and live council data will be connected next.
         </p>

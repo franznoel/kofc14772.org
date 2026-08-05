@@ -23,8 +23,8 @@ export default async function Home() {
       <header className="border-b border-slate-800 bg-slate-950 text-white">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-amber-400">Council 14772</p>
-            <h1 className="mt-1 text-xl font-semibold">St. Genevieve Knights</h1>
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-amber-400">Knights of Columbus</p>
+            <h1 className="mt-1 text-xl font-semibold">St. Genevieve Council #14772</h1>
           </div>
           <UserMenu name={session?.user?.name} email={session?.user?.email} />
         </div>

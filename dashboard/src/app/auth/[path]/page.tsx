@@ -21,8 +21,8 @@ export default async function AuthPage({ params }: PageProps<"/auth/[path]">) {
             width={80}
           />
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-amber-400">Council 14772</p>
-            <h1 className="mt-2 text-2xl font-semibold">St. Genevieve Knights</h1>
+            <h1 className="mt-2 text-2xl font-semibold">Knights of Columbus</h1>
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-amber-400">St. Genevieve Council #14772</p>
           </div>
         </div>
         <div className="relative max-w-xl">

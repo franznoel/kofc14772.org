@@ -6,7 +6,9 @@
   "description": "Website for Knights of Columbus St. Genevieve Council 14772",
   "scripts": {
     "build": "eleventy",
-    "start": "eleventy --serve"
+    "start": "eleventy --serve",
+    "dashboard:deploy": "npm run --prefix dashboard build",
+    "dashboard:logs": "npm run --prefix dashboard logs"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2"

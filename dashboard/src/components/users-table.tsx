@@ -16,6 +16,11 @@ export function UsersTable({ currentUserId, users }: { currentUserId?: string; u
   const [updatingId, setUpdatingId] = useState<string | null>(null);
   const [editingUserId, setEditingUserId] = useState<string | null>(null);
   const [nameDraft, setNameDraft] = useState("");
+  const [passwordUser, setPasswordUser] = useState<DashboardUser | null>(null);
+  const [passwordDraft, setPasswordDraft] = useState("");
+  const [passwordConfirmation, setPasswordConfirmation] = useState("");
+  const [passwordPending, setPasswordPending] = useState(false);
+  const [passwordMessage, setPasswordMessage] = useState<{ error?: string; success?: string }>({});
   const [actionError, setActionError] = useState<string | null>(null);
   const [controlVersion, setControlVersion] = useState(0);
   const [isPending, startTransition] = useTransition();
@@ -160,6 +165,43 @@ export function UsersTable({ currentUserId, users }: { currentUserId?: string; u
     });
   }
 
+  async function changePassword(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (!passwordUser) return;
+    if (passwordDraft !== passwordConfirmation) {
+      setPasswordMessage({ error: "The passwords do not match." });
+      return;
+    }
+
+    setPasswordPending(true);
+    setPasswordMessage({});
+    try {
+      const response = await fetch(`/api/users/${encodeURIComponent(passwordUser.id)}/password`, {
+        method: "POST",
+        credentials: "same-origin",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ newPassword: passwordDraft }),
+      });
+      const result = await response.json() as { error?: string; success?: string };
+      if (!response.ok) throw new Error(result.error || "Unable to change this password.");
+
+      setPasswordDraft("");
+      setPasswordConfirmation("");
+      setPasswordMessage({ success: result.success || "Password changed." });
+    } catch (error) {
+      setPasswordMessage({ error: error instanceof Error ? error.message : "Unable to change this password." });
+    } finally {
+      setPasswordPending(false);
+    }
+  }
+
+  function closePasswordDialog() {
+    setPasswordUser(null);
+    setPasswordDraft("");
+    setPasswordConfirmation("");
+    setPasswordMessage({});
+  }
+
   return (
     <div className="mt-8 overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-sm">
       <div className="flex flex-col gap-3 border-b border-stone-200 px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
@@ -213,12 +255,34 @@ export function UsersTable({ currentUserId, users }: { currentUserId?: string; u
                 <td className="px-6 py-4 text-sm"><select aria-label={`Role for ${user.name}`} className="rounded-lg border border-stone-300 bg-white px-2.5 py-1.5 text-sm capitalize text-slate-700" disabled={isPending && updatingId === user.id} key={`role-${user.id}-${controlVersion}`} onChange={(event) => updateUser(user.id, { role: event.target.value })} value={user.role || "user"}><option value="user">User</option><option value="admin">Admin</option></select></td>
                 <td className="px-6 py-4"><select aria-label={`Status for ${user.name}`} className={`rounded-lg border px-2.5 py-1.5 text-sm font-medium ${user.banned ? "border-red-200 bg-red-50 text-red-700" : "border-emerald-200 bg-emerald-50 text-emerald-700"}`} disabled={isPending && updatingId === user.id} key={`status-${user.id}-${controlVersion}`} onChange={(event) => updateUser(user.id, { status: event.target.value })} value={user.banned ? "banned" : "active"}><option value="active">Active</option><option value="banned">Banned</option></select></td>
                 <td className="px-6 py-4 text-sm text-slate-600"><time dateTime={user.createdAt}>{formatDate(user.createdAt)}</time></td>
-                <td className="px-6 py-4"><div className="flex items-center justify-end gap-2">{user.emailVerified ? <span className="text-xs font-medium text-slate-400">Verified</span> : <button className="rounded-lg border border-amber-300 px-3 py-1.5 text-xs font-semibold text-amber-800 transition hover:border-amber-500 hover:bg-amber-50 disabled:cursor-not-allowed disabled:opacity-60" disabled={isPending} onClick={() => verify(user.id)} type="button">{verifyingId === user.id ? "Verifying…" : "Verify"}</button>}<button className="rounded-lg border border-red-200 px-3 py-1.5 text-xs font-semibold text-red-700 transition hover:border-red-400 hover:bg-red-50 disabled:cursor-not-allowed disabled:opacity-40" disabled={isPending || user.id === currentUserId} onClick={() => removeUser(user)} title={user.id === currentUserId ? "You cannot delete your own account" : undefined} type="button">{updatingId === user.id ? "Saving…" : "Delete"}</button></div></td>
+                <td className="px-6 py-4"><div className="flex items-center justify-end gap-2">{user.emailVerified ? <span className="text-xs font-medium text-slate-400">Verified</span> : <button className="rounded-lg border border-amber-300 px-3 py-1.5 text-xs font-semibold text-amber-800 transition hover:border-amber-500 hover:bg-amber-50 disabled:cursor-not-allowed disabled:opacity-60" disabled={isPending} onClick={() => verify(user.id)} type="button">{verifyingId === user.id ? "Verifying…" : "Verify"}</button>}<button className="rounded-lg border border-slate-300 px-3 py-1.5 text-xs font-semibold text-slate-700 transition hover:border-slate-500 hover:bg-slate-50 disabled:opacity-40" disabled={isPending} onClick={() => { setPasswordUser(user); setPasswordMessage({}); }} type="button">Password</button><button className="rounded-lg border border-red-200 px-3 py-1.5 text-xs font-semibold text-red-700 transition hover:border-red-400 hover:bg-red-50 disabled:cursor-not-allowed disabled:opacity-40" disabled={isPending || user.id === currentUserId} onClick={() => removeUser(user)} title={user.id === currentUserId ? "You cannot delete your own account" : undefined} type="button">{updatingId === user.id ? "Saving…" : "Delete"}</button></div></td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
+      {passwordUser ? (
+        <div aria-labelledby="password-dialog-title" aria-modal="true" className="fixed inset-0 z-50 grid place-items-center bg-slate-950/60 p-4" role="dialog">
+          <div className="w-full max-w-md rounded-2xl bg-white p-6 shadow-2xl">
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <h3 className="text-lg font-semibold text-slate-950" id="password-dialog-title">Change password</h3>
+                <p className="mt-1 text-sm text-slate-600">Set a new password for {passwordUser.name}.</p>
+              </div>
+              <button aria-label="Close password dialog" className="px-2 text-xl text-slate-400 hover:text-slate-700" disabled={passwordPending} onClick={closePasswordDialog} type="button">×</button>
+            </div>
+            <form className="mt-6 space-y-4" onSubmit={changePassword}>
+              <label className="block text-sm font-medium text-slate-700">New password<input autoComplete="new-password" autoFocus className="mt-2 w-full rounded-xl border border-stone-300 px-4 py-3 text-slate-950 focus:border-amber-600 focus:ring-2 focus:ring-amber-600/20" disabled={passwordPending} maxLength={128} minLength={8} onChange={(event) => setPasswordDraft(event.target.value)} required type="password" value={passwordDraft} /></label>
+              <label className="block text-sm font-medium text-slate-700">Confirm new password<input autoComplete="new-password" className="mt-2 w-full rounded-xl border border-stone-300 px-4 py-3 text-slate-950 focus:border-amber-600 focus:ring-2 focus:ring-amber-600/20" disabled={passwordPending} maxLength={128} minLength={8} onChange={(event) => setPasswordConfirmation(event.target.value)} required type="password" value={passwordConfirmation} /></label>
+              {passwordMessage.error || passwordMessage.success ? <p aria-live="polite" className={`rounded-xl px-4 py-3 text-sm ${passwordMessage.error ? "bg-red-50 text-red-700" : "bg-emerald-50 text-emerald-700"}`}>{passwordMessage.error || passwordMessage.success}</p> : null}
+              <div className="flex justify-end gap-3 pt-2">
+                <button className="rounded-xl border border-stone-300 px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-stone-50 disabled:opacity-50" disabled={passwordPending} onClick={closePasswordDialog} type="button">Cancel</button>
+                <button className="rounded-xl bg-amber-700 px-4 py-2.5 text-sm font-semibold text-white hover:bg-amber-800 disabled:opacity-60" disabled={passwordPending} type="submit">{passwordPending ? "Saving…" : "Change password"}</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      ) : null}
     </div>
   );
 }

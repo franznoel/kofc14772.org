@@ -1,4 +1,5 @@
 import { getSameOrigin, isUserAdministrator } from "@/lib/user-administration";
+import { isActiveMemberEmail } from "@/lib/members";
 
 export async function POST(request: Request) {
   const origin = getSameOrigin(request);
@@ -16,6 +17,9 @@ export async function POST(request: Request) {
   if (!name || !email || !password) return Response.json({ error: "Complete all fields." }, { status: 400 });
   if (!/^\S+@\S+\.\S+$/.test(email)) return Response.json({ error: "Enter a valid email address." }, { status: 400 });
   if (password.length < 8) return Response.json({ error: "Use an initial password with at least 8 characters." }, { status: 400 });
+  if (!await isActiveMemberEmail(email)) {
+    return Response.json({ error: "This email address is not listed on the active council roster." }, { status: 403 });
+  }
 
   const baseUrl = process.env.NEON_AUTH_BASE_URL;
   if (!baseUrl) return Response.json({ error: "Neon Auth is not configured." }, { status: 500 });

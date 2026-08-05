@@ -20,6 +20,19 @@ type MemberRow = {
   needs_review: boolean;
 };
 
+export async function isActiveMemberEmail(email: string): Promise<boolean> {
+  const normalizedEmail = email.trim().toLowerCase();
+  if (!normalizedEmail) return false;
+
+  const member = await database()("members")
+    .select("id")
+    .where("is_active", true)
+    .whereRaw("LOWER(BTRIM(email)) = ?", [normalizedEmail])
+    .first<{ id: string }>();
+
+  return Boolean(member);
+}
+
 export async function listMembers(): Promise<Member[]> {
   const rows = await database()<MemberRow>("members")
     .select("id", "roster_number", "full_name", "phone", "email", "needs_review")

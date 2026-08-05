@@ -2,6 +2,7 @@
 
 import { redirect } from "next/navigation";
 import { auth } from "@/lib/auth/server";
+import { isActiveMemberEmail } from "@/lib/members";
 
 export type AuthActionState = { error?: string };
 
@@ -28,8 +29,11 @@ export async function signUpAction(_state: AuthActionState, formData: FormData):
 
   if (!name || !email || !password) return { error: "Complete all fields to create your account." };
   if (password.length < 8) return { error: "Use a password with at least 8 characters." };
+  if (!await isActiveMemberEmail(email)) {
+    return { error: "This email address is not listed on the active council roster." };
+  }
 
-  const { error } = await auth.signUp.email({ name, email, password });
+  const { error } = await auth.signUp.email({ name, email: email.toLowerCase(), password });
   if (error) return { error: error.message || "Unable to create your account." };
   redirect("/");
 }

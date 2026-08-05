@@ -1,17 +1,24 @@
 import Link from "next/link";
 import { UserMenu } from "@/components/user-menu";
 import { auth } from "@/lib/auth/server";
-
-const sections = [
-  { title: "Announcements", description: "Draft and publish updates for the council website.", count: "—", href: null },
-  { title: "Events", description: "Manage meetings, services, and community events.", count: "—", href: null },
-  { title: "Members", description: "Maintain member records and administrative access.", count: "63", href: "/members" },
-];
+import { countMembers } from "@/lib/members";
+import { countUsers } from "@/lib/users";
 
 export const dynamic = "force-dynamic";
 
 export default async function Home() {
-  const { data: session } = await auth.getSession();
+  const [{ data: session }, memberCount, userCount] = await Promise.all([
+    auth.getSession(),
+    countMembers().catch(() => null),
+    countUsers().catch(() => null),
+  ]);
+
+  const sections = [
+    { title: "Announcements", description: "Draft and publish updates for the council website.", count: "—", href: null },
+    { title: "Events", description: "Manage meetings, services, and community events.", count: "—", href: null },
+    { title: "Members", description: "Maintain member records and administrative access.", count: memberCount ?? "—", href: "/members" },
+    { title: "Users", description: "Review accounts registered through Neon Auth.", count: userCount ?? "—", href: "/users" },
+  ];
 
   return (
     <main className="min-h-screen bg-stone-100 text-slate-950">
@@ -34,7 +41,7 @@ export default async function Home() {
           The application foundation is ready. Authentication and live council data will be connected next.
         </p>
 
-        <div className="mt-10 grid gap-5 md:grid-cols-3">
+        <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
           {sections.map((section) => (
             <article key={section.title} className="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm">
               <div className="flex items-start justify-between gap-4">
@@ -42,7 +49,7 @@ export default async function Home() {
                 <span className="text-2xl font-semibold text-amber-700">{section.count}</span>
               </div>
               <p className="mt-3 text-sm leading-6 text-slate-600">{section.description}</p>
-              {section.href ? <Link className="mt-5 inline-flex text-sm font-semibold text-amber-700 hover:text-amber-800" href={section.href}>View members →</Link> : null}
+              {section.href ? <Link className="mt-5 inline-flex text-sm font-semibold text-amber-700 hover:text-amber-800" href={section.href}>View {section.title.toLowerCase()} →</Link> : null}
             </article>
           ))}
         </div>

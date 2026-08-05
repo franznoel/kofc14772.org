@@ -35,3 +35,12 @@ export async function listMembers(): Promise<Member[]> {
     needsReview: row.needs_review,
   }));
 }
+
+export async function countMembers(): Promise<number> {
+  const result = await database()("members")
+    .where("is_active", true)
+    .count<{ count: string }>("id as count")
+    .first();
+
+  return Number(result?.count ?? 0);
+}

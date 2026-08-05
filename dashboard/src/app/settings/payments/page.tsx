@@ -15,7 +15,11 @@ export default async function PaymentSettingsPage() {
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-amber-400">Knights of Columbus</p>
             <h1 className="mt-1 text-xl font-semibold">St. Genevieve Council #14772</h1>
           </div>
-          <UserMenu name={session?.user?.name} email={session?.user?.email} />
+          {session?.user ? (
+            <UserMenu name={session.user.name} email={session.user.email} />
+          ) : (
+            <Link className="rounded-full border border-slate-700 px-4 py-2 text-sm font-medium text-slate-200 transition hover:border-amber-500 hover:text-white" href="/auth/sign-in">Sign in</Link>
+          )}
         </div>
       </header>
 

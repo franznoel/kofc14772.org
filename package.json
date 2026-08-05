@@ -7,7 +7,8 @@
   "scripts": {
     "build": "eleventy",
     "start": "eleventy --serve",
-    "dashboard:deploy": "npm run --prefix dashboard build",
+    "dashboard:build": "npm run --prefix dashboard build",
+    "dashboard:deploy": "npm run --prefix dashboard deploy",
     "dashboard:logs": "npm run --prefix dashboard logs",
     "dashboard:migrate:latest": "npm run --prefix dashboard db:migrate"
   },

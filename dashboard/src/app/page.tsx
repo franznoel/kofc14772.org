@@ -1,10 +1,11 @@
+import Link from "next/link";
 import { UserMenu } from "@/components/user-menu";
 import { auth } from "@/lib/auth/server";
 
 const sections = [
-  { title: "Announcements", description: "Draft and publish updates for the council website.", count: "—" },
-  { title: "Events", description: "Manage meetings, services, and community events.", count: "—" },
-  { title: "Members", description: "Maintain member records and administrative access.", count: "—" },
+  { title: "Announcements", description: "Draft and publish updates for the council website.", count: "—", href: null },
+  { title: "Events", description: "Manage meetings, services, and community events.", count: "—", href: null },
+  { title: "Members", description: "Maintain member records and administrative access.", count: "63", href: "/members" },
 ];
 
 export const dynamic = "force-dynamic";
@@ -41,6 +42,7 @@ export default async function Home() {
                 <span className="text-2xl font-semibold text-amber-700">{section.count}</span>
               </div>
               <p className="mt-3 text-sm leading-6 text-slate-600">{section.description}</p>
+              {section.href ? <Link className="mt-5 inline-flex text-sm font-semibold text-amber-700 hover:text-amber-800" href={section.href}>View members →</Link> : null}
             </article>
           ))}
         </div>

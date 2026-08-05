@@ -8,7 +8,8 @@
     "build": "eleventy",
     "start": "eleventy --serve",
     "dashboard:deploy": "npm run --prefix dashboard build",
-    "dashboard:logs": "npm run --prefix dashboard logs"
+    "dashboard:logs": "npm run --prefix dashboard logs",
+    "dashboard:migrate:latest": "npm run --prefix dashboard db:migrate"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2"

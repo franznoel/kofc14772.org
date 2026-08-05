@@ -16,6 +16,7 @@ export default async function Home() {
   const sections = [
     { title: "Members", description: "Maintain member records and administrative access.", count: memberCount ?? "—", href: "/members" },
     { title: "Users", description: "Review accounts registered through Neon Auth.", count: userCount ?? "—", href: "/users" },
+    { title: "Payments", description: "Manage Stripe onboarding and payment processing settings.", count: null, href: "/settings/payments" },
   ];
 
   return (
@@ -44,7 +45,7 @@ export default async function Home() {
             <article key={section.title} className="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm">
               <div className="flex items-start justify-between gap-4">
                 <h3 className="text-lg font-semibold">{section.title}</h3>
-                <span className="text-2xl font-semibold text-amber-700">{section.count}</span>
+                {section.count !== null ? <span className="text-2xl font-semibold text-amber-700">{section.count}</span> : null}
               </div>
               <p className="mt-3 text-sm leading-6 text-slate-600">{section.description}</p>
               {section.href ? <Link className="mt-5 inline-flex text-sm font-semibold text-amber-700 hover:text-amber-800" href={section.href}>View {section.title.toLowerCase()} →</Link> : null}

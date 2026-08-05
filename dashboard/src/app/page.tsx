@@ -51,13 +51,6 @@ export default async function Home() {
             </article>
           ))}
         </div>
-
-        <div className="mt-8 rounded-2xl border border-dashed border-amber-700/40 bg-amber-50 p-6">
-          <h3 className="font-semibold text-amber-950">Next milestone</h3>
-          <p className="mt-2 text-sm leading-6 text-amber-900/80">
-            Provision Neon, configure Neon Auth, and apply the first Knex migration before enabling administrative actions.
-          </p>
-        </div>
       </section>
     </main>
   );

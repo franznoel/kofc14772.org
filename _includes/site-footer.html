@@ -4,7 +4,28 @@
             <p><strong>Knights of Columbus Council 14772</strong><br>St. Genevieve Parish, Panorama City</p>
             {% if showMaintainer %}<p>Website maintained by <a class="maintainer-link" href="https://franz.tanglao.org" target="_blank" rel="noopener">Franz Tanglao</a></p>{% endif %}
         </div>
-        <a href="{{ footerBackHref }}" aria-label="{{ footerBackLabel }}"><i class="fa fa-chevron-up" aria-hidden="true"></i></a>
+        <nav class="footer-nav footer-site-nav" aria-label="Footer navigation">
+            <h2>Explore</h2>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/#about">About</a></li>
+                <li><a href="/programs/">Programs</a></li>
+                <li><a href="/events/">Events</a></li>
+                <li><a href="/knightline/">Knightline</a></li>
+                <li><a href="/announcements/">Announcements</a></li>
+                <li><a href="/#officers">Officers</a></li>
+                <li><a href="/#members">Join</a></li>
+                <li><a href="/#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <nav class="footer-nav" aria-label="External links">
+            <h2>External links</h2>
+            <ul>
+                <li><a href="https://dashboard.stgenknights.com/">Dashboard <i class="fa fa-external-link" aria-hidden="true"></i></a></li>
+                <li><a href="https://www.kofc.org/what-we-do/insurance/" target="_blank" rel="noopener">Insurance <i class="fa fa-external-link" aria-hidden="true"></i></a></li>
+            </ul>
+        </nav>
+        <a class="footer-back" href="{{ footerBackHref }}" aria-label="{{ footerBackLabel }}"><i class="fa fa-chevron-up" aria-hidden="true"></i></a>
     </div>
 </footer>
 <script src="/js/nav-dropdown.js"></script>

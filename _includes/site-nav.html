@@ -5,7 +5,7 @@
     </a>
     <div class="nav-links">
         {% unless homePage %}<a href="/">Home</a>{% endunless %}
-        <a href="{% if homePage %}#about{% else %}/#about{% endif %}">About</a>
+        <a href="/about/"{% if activePage == "about" %} aria-current="page"{% endif %}>About</a>
         <a href="/programs/"{% if activePage == "programs" %} aria-current="page"{% endif %}>Programs</a>
         <a href="/events/"{% if activePage == "events" %} aria-current="page"{% endif %}>Events</a>
         <a href="/knightline/"{% if activePage == "knightline" %} aria-current="page"{% endif %}>Knightline</a>

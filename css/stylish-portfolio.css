@@ -716,6 +716,50 @@ summary {
     background: var(--paper);
 }
 
+.about-header .programs-title {
+    max-width: 1120px;
+}
+
+.about-header .programs-title h1 {
+    max-width: 980px;
+    font-size: clamp(48px, 7vw, 86px);
+}
+
+.about-main {
+    padding: 86px 0 110px;
+    background: var(--paper);
+}
+
+.about-content {
+    max-width: 900px;
+}
+
+.about-content section {
+    padding: 42px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.about-content section:first-child {
+    padding-top: 0;
+}
+
+.about-content section:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
+}
+
+.about-content h2 {
+    margin-bottom: 16px;
+    color: var(--blue-dark);
+    font-size: clamp(30px, 4vw, 46px);
+}
+
+.about-content p {
+    margin-bottom: 0;
+    color: var(--muted);
+    font-size: 21px;
+}
+
 .program-tabs {
     display: flex;
     gap: 8px;

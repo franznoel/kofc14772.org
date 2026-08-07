@@ -1,0 +1,62 @@
+---
+title: Membership Dues | St. Genevieve Knights of Columbus Council 14772
+description: Membership and annual dues information for Knights of Columbus St. Genevieve Council 14772.
+activePage: membership
+footerBackHref: "#main"
+footerBackLabel: Back to membership information
+---
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ description }}">
+    <title>{{ title }}</title>
+    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,900" rel="stylesheet" type="text/css">
+    <link href="/css/stylish-portfolio.css" rel="stylesheet">
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="programs-header membership-header">
+        {% include "site-nav.html" %}
+
+        <div class="programs-title container">
+            <p class="eyebrow">Council 14772</p>
+            <h1>Membership &amp; Dues</h1>
+            <p>Keep your council membership current and help sustain our shared work of faith, fraternity, and service.</p>
+        </div>
+    </header>
+
+    <main id="main" class="membership-main">
+        <div class="container membership-layout">
+            <section class="membership-content">
+                <p class="eyebrow">Annual Membership</p>
+                <h2>What your dues support</h2>
+                <p>Membership dues help Council 14772 meet its annual obligations and continue serving members, St. Genevieve Parish, and the wider community.</p>
+                <ul>
+                    <li>Council operations and member communications</li>
+                    <li>Parish, charitable, and fraternal activities</li>
+                    <li>Programs that advance the Knights’ principles of charity, unity, fraternity, and patriotism</li>
+                </ul>
+                <p>Dues are assessed annually. Please confirm your current amount and membership standing with the council before paying.</p>
+            </section>
+
+            <aside class="dues-card" aria-labelledby="pay-dues-title">
+                <p class="eyebrow">For Current Members</p>
+                <h2 id="pay-dues-title">Pay Membership Dues</h2>
+                <p class="dues-amount"><strong>$35</strong> per year</p>
+                <p>Online payment is not yet available. Once the council approves and configures a secure checkout destination, you will be able to pay here.</p>
+                <a class="button primary" aria-disabled="true" tabindex="-1">Pay Membership Dues</a>
+                <p class="payment-note">No payment will be collected from this page at this time.</p>
+            </aside>
+        </div>
+    </main>
+
+    {% include "site-footer.html" %}
+</body>
+
+</html>

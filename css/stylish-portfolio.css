@@ -645,6 +645,89 @@ summary {
     color: var(--muted);
 }
 
+.join-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.membership-main {
+    padding: 86px 0 110px;
+    background: var(--paper);
+}
+
+.membership-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.75fr);
+    gap: 42px;
+    align-items: start;
+}
+
+.membership-content h2,
+.dues-card h2 {
+    color: var(--blue-dark);
+}
+
+.membership-content > p,
+.membership-content li,
+.dues-card > p {
+    color: var(--muted);
+}
+
+.membership-content > p {
+    font-size: 21px;
+}
+
+.membership-content ul {
+    padding-left: 24px;
+}
+
+.membership-content li + li {
+    margin-top: 10px;
+}
+
+.dues-card {
+    padding: 36px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-top: 5px solid var(--gold);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.dues-card .button {
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.dues-card .dues-amount {
+    margin: 4px 0 18px;
+    color: var(--blue-dark);
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.dues-amount strong {
+    color: var(--red);
+    font-size: 42px;
+    line-height: 1;
+}
+
+.button[aria-disabled="true"] {
+    color: rgba(255, 255, 255, 0.84);
+    background: var(--muted);
+    border-color: var(--muted);
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.payment-note {
+    margin: 16px 0 0;
+    font-size: 15px;
+    line-height: 1.45;
+}
+
 .contact-section {
     min-height: 560px;
     display: grid;
@@ -1388,6 +1471,7 @@ summary {
     .feature-layout,
     .officers-layout,
     .join-panel,
+    .membership-layout,
     .contact-section {
         grid-template-columns: 1fr;
     }

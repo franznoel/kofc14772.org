@@ -41,64 +41,71 @@ footerBackLabel: Back to events
             </div>
 
             <div class="events-list">
-                <article class="event-card">
+                <article class="event-card" data-weekday="2" data-weeks="1">
                     <div class="event-date"><strong>1st</strong><span>Tuesday</span></div>
                     <div>
                         <h3>Planning Meeting</h3>
+                        <p class="event-next-date"><i class="fa fa-calendar" aria-hidden="true"></i> Next date: <time>Calculating…</time></p>
                         <p class="event-time"><i class="fa fa-clock-o" aria-hidden="true"></i> 9:00–11:00 a.m.</p>
                         <p><i class="fa fa-map-marker" aria-hidden="true"></i> Conference Room</p>
                     </div>
                 </article>
 
-                <article class="event-card">
+                <article class="event-card" data-weekday="4" data-weeks="1">
                     <div class="event-date"><strong>1st</strong><span>Thursday</span></div>
                     <div>
                         <h3>Assembly Meeting</h3>
+                        <p class="event-next-date"><i class="fa fa-calendar" aria-hidden="true"></i> Next date: <time>Calculating…</time></p>
                         <p class="event-time"><i class="fa fa-clock-o" aria-hidden="true"></i> 7:00 p.m.</p>
                         <p><i class="fa fa-map-marker" aria-hidden="true"></i> Van Nuys Hall, 14450 Valerio St., Van Nuys, CA 81405</p>
                     </div>
                 </article>
 
-                <article class="event-card">
+                <article class="event-card" data-weekday="5" data-weeks="1">
                     <div class="event-date"><strong>1st</strong><span>Friday</span></div>
                     <div>
                         <h3>Holy Hour</h3>
+                        <p class="event-next-date"><i class="fa fa-calendar" aria-hidden="true"></i> Next date: <time>Calculating…</time></p>
                         <p class="event-time"><i class="fa fa-clock-o" aria-hidden="true"></i> 7:00–8:00 p.m.</p>
                         <p><i class="fa fa-map-marker" aria-hidden="true"></i> Church</p>
                     </div>
                 </article>
 
-                <article class="event-card">
+                <article class="event-card" data-weekday="5" data-weeks="2">
                     <div class="event-date"><strong>2nd</strong><span>Friday</span></div>
                     <div>
                         <h3>Chapter Meeting</h3>
+                        <p class="event-next-date"><i class="fa fa-calendar" aria-hidden="true"></i> Next date: <time>Calculating…</time></p>
                         <p class="event-time"><i class="fa fa-clock-o" aria-hidden="true"></i> 7:00 p.m.</p>
                         <p><i class="fa fa-map-marker" aria-hidden="true"></i> St Anthony Croatian Church, 712 N. Grand Ave. LA, CA 90012</p>
                     </div>
                 </article>
 
-                <article class="event-card">
+                <article class="event-card" data-weekday="6" data-weeks="2,4">
                     <div class="event-date"><strong>2nd &amp; 4th</strong><span>Saturday</span></div>
                     <div>
                         <h3>Pro-Life Prayer Rally</h3>
+                        <p class="event-next-date"><i class="fa fa-calendar" aria-hidden="true"></i> Next date: <time>Calculating…</time></p>
                         <p class="event-time"><i class="fa fa-clock-o" aria-hidden="true"></i> 9:00–10:00 a.m.</p>
                         <p><i class="fa fa-map-marker" aria-hidden="true"></i> 10800 Sepulveda Blvd., San Fernando, CA</p>
                     </div>
                 </article>
 
-                <article class="event-card">
+                <article class="event-card" data-weekday="0" data-weeks="3">
                     <div class="event-date"><strong>3rd</strong><span>Sunday</span></div>
                     <div>
                         <h3>Sacramental Offering</h3>
+                        <p class="event-next-date"><i class="fa fa-calendar" aria-hidden="true"></i> Next date: <time>Calculating…</time></p>
                         <p class="event-time"><i class="fa fa-clock-o" aria-hidden="true"></i> 10:30–11:30 a.m. Mass</p>
                         <p><i class="fa fa-map-marker" aria-hidden="true"></i> Church</p>
                     </div>
                 </article>
 
-                <article class="event-card">
+                <article class="event-card" data-weekday="0" data-weeks="3">
                     <div class="event-date"><strong>3rd</strong><span>Sunday</span></div>
                     <div>
                         <h3>Business Meeting</h3>
+                        <p class="event-next-date"><i class="fa fa-calendar" aria-hidden="true"></i> Next date: <time>Calculating…</time></p>
                         <p class="event-time"><i class="fa fa-clock-o" aria-hidden="true"></i> 5:00–9:00 p.m.</p>
                         <p><i class="fa fa-map-marker" aria-hidden="true"></i> Madonna Hall</p>
                     </div>
@@ -108,6 +115,7 @@ footerBackLabel: Back to events
     </main>
 
     {% include "site-footer.html" %}
+    <script src="/js/event-dates.js"></script>
 </body>
 
 </html>

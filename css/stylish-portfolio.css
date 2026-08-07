@@ -895,6 +895,16 @@ summary {
     color: var(--muted);
 }
 
+.event-card p.event-next-date {
+    margin-bottom: 8px;
+    color: var(--red);
+    font-weight: 900;
+}
+
+.event-next-date time {
+    color: var(--blue-dark);
+}
+
 .event-card i {
     width: 22px;
     color: var(--red);

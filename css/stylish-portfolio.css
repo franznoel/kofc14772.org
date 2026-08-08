@@ -645,12 +645,6 @@ summary {
     color: var(--muted);
 }
 
-.join-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-}
-
 .membership-main {
     padding: 86px 0 110px;
     background: var(--paper);
@@ -714,7 +708,8 @@ summary {
     line-height: 1;
 }
 
-.button[aria-disabled="true"] {
+.button[aria-disabled="true"],
+.button:disabled {
     color: rgba(255, 255, 255, 0.84);
     background: var(--muted);
     border-color: var(--muted);

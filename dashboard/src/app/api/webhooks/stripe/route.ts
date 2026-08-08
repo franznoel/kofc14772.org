@@ -33,10 +33,17 @@ export async function POST(request: Request) {
     return Response.json({ received: true, ignored: true });
   }
 
+  const session = event.data.object as Stripe.Checkout.Session;
+  if (session.metadata?.payment_type !== "membership_dues") {
+    return Response.json({ received: true, ignored: true });
+  }
+
   console.info("Stripe membership webhook received", {
     account: event.account,
+    checkoutSessionId: session.id,
     eventId: event.id,
     livemode: event.livemode,
+    paymentStatus: session.payment_status,
     type: event.type,
   });
 

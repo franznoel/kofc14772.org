@@ -689,9 +689,16 @@ summary {
     box-shadow: var(--shadow);
 }
 
+.dues-payment-form,
 .dues-card .button {
     width: 100%;
+}
+
+.dues-payment-form {
     margin-top: 10px;
+}
+
+.dues-card .button {
     text-align: center;
 }
 
@@ -721,6 +728,30 @@ summary {
     margin: 16px 0 0;
     font-size: 15px;
     line-height: 1.45;
+}
+
+.payment-note i {
+    margin-right: 5px;
+    color: var(--blue);
+}
+
+.payment-status {
+    margin: 18px 0;
+    padding: 13px 15px;
+    color: var(--blue-dark);
+    background: var(--cream);
+    border-left: 4px solid var(--gold);
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.payment-status.is-success {
+    border-left-color: #3f7a4b;
+}
+
+.payment-status.is-error {
+    border-left-color: var(--red);
 }
 
 .contact-section {

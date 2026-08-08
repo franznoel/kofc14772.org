@@ -49,14 +49,18 @@ footerBackLabel: Back to membership information
                 <p class="eyebrow">For Current Members</p>
                 <h2 id="pay-dues-title">Pay Membership Dues</h2>
                 <p class="dues-amount"><strong>$35</strong> per year</p>
-                <p>Online payment is not yet available. Once the council approves and configures a secure checkout destination, you will be able to pay here.</p>
-                <button class="button primary" type="button" disabled>Pay Membership Dues</button>
-                <p class="payment-note">No payment will be collected from this page at this time.</p>
+                <div class="payment-status" data-payment-status hidden role="status" aria-live="polite"></div>
+                <p>Pay your annual dues through Stripe’s secure checkout. You will be asked for your name, email, and membership number if known.</p>
+                <form class="dues-payment-form" action="https://dashboard.stgenknights.com/api/checkout/membership" method="post">
+                    <button class="button primary" type="submit">Pay Membership Dues</button>
+                </form>
+                <p class="payment-note"><i class="fa fa-lock" aria-hidden="true"></i> Payment information is collected securely by Stripe.</p>
             </aside>
         </div>
     </main>
 
     {% include "site-footer.html" %}
+    <script src="/js/membership-payment-status.js"></script>
 </body>
 
 </html>

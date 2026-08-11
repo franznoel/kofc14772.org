@@ -34,13 +34,20 @@ footerBackLabel: Back to announcements
             <div class="announcements-heading">
                 <p class="eyebrow">Upcoming</p>
                 <h2>Save the date.</h2>
-                <p>Announcements are arranged chronologically by event date.</p>
+                <p>Announcements remain upcoming through their event date, then move automatically to the archive.</p>
             </div>
-            <div class="announcements-list">
+            <div class="announcements-list" id="upcoming-announcements">
                 {% for item in announcements %}
                     {% include "announcement-card.html" %}
                 {% endfor %}
             </div>
+            <section class="announcements-archive" aria-labelledby="archive-heading">
+                <div class="announcements-heading">
+                    <p class="eyebrow">Past announcements</p>
+                    <h2 id="archive-heading">Announcement Archive</h2>
+                </div>
+                <div class="announcements-list" id="archived-announcements"></div>
+            </section>
         </div>
     </main>
     {% include "site-footer.html" %}

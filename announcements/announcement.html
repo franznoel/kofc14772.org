@@ -48,10 +48,10 @@ footerBackLabel: Back to all announcements
                         <h3><i class="fa fa-map-marker" aria-hidden="true"></i> Location</h3>
                         <p>{{ announcement.location }}</p>
                     </div>
-                    <div>
+                    {% if announcement.contacts.size > 0 %}<div>
                         <h3><i class="fa fa-phone" aria-hidden="true"></i> Contact</h3>
                         <ul>{% for contact in announcement.contacts %}<li>{{ contact }}</li>{% endfor %}</ul>
-                    </div>
+                    </div>{% endif %}
                 </section>
             </div>
 

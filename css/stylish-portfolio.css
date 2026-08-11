@@ -71,6 +71,8 @@ a {
 }
 
 .site-nav {
+    position: relative;
+    z-index: 100;
     width: min(1180px, calc(100% - 40px));
     margin: 0 auto;
     display: grid;
@@ -215,6 +217,13 @@ a {
     color: #fff;
     background: var(--blue);
     border: 2px solid var(--blue);
+}
+
+.nav-links .nav-submenu a.nav-submenu-archive {
+    margin-top: 5px;
+    border-top: 1px solid var(--line);
+    border-radius: 0 0 5px 5px;
+    font-weight: 900;
 }
 
 .nav-links .nav-submenu a.nav-submenu-all:hover,
@@ -1074,6 +1083,16 @@ summary {
     gap: 28px;
 }
 
+.announcements-archive {
+    margin-top: 88px;
+    padding-top: 72px;
+    border-top: 1px solid var(--line);
+}
+
+.announcements-archive:has(.announcements-list:empty) {
+    display: none;
+}
+
 .announcement-card {
     display: grid;
     grid-template-columns: minmax(220px, 0.48fr) minmax(0, 1fr);
@@ -1142,6 +1161,8 @@ summary {
 }
 
 .announcement-detail-header {
+    position: relative;
+    z-index: 90;
     padding: 24px 0;
     color: #fff;
     background: var(--blue-dark);

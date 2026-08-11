@@ -1,5 +1,21 @@
 [
   {
+    "slug": "photo-op-august-2026",
+    "date": "2026-08-16",
+    "dateDisplay": "August 16, 2026",
+    "title": "Council Photo Op",
+    "excerpt": "Council members are invited to a Photo Op at the 10:30 a.m. Mass. Suit and tie are required.",
+    "description": "Knights of Columbus St. Genevieve Council 14772 invites council members to join the Council Photo Op at the 10:30 a.m. Mass. Please arrive dressed in a suit and tie.",
+    "image": "/img/announcements/photo-op-august-2026.png",
+    "imageAlt": "Council Photo Op announcement for August 16, 2026 at the 10:30 a.m. Mass; suit and tie required",
+    "schedule": [
+      "10:30 a.m. Mass",
+      "Council Photo Op"
+    ],
+    "location": "St. Genevieve Church, 14061 Roscoe Blvd., Panorama City, CA 91402",
+    "contacts": []
+  },
+  {
     "slug": "installation-of-officers-2026",
     "date": "2026-08-08",
     "dateDisplay": "August 8, 2026",
@@ -16,8 +32,7 @@
     "contacts": [
       "Jun Guinto — (818) 590-8318",
       "Bon Mendoza — (818) 612-4512"
-    ],
-    "upcoming": true
+    ]
   },
   {
     "slug": "harrahs-casino-fundraiser-2026",
@@ -36,7 +51,6 @@
       "Jun Guinto — (818) 590-8318",
       "Bon Mendoza — (818) 612-4512",
       "Chris Mancao — (818) 606-6498"
-    ],
-    "upcoming": true
+    ]
   }
 ]

@@ -16,8 +16,9 @@
                 <a class="nav-submenu-all" href="/announcements/">All announcements</a>
                 <span>Upcoming</span>
                 {% for item in announcements %}
-                    {% if item.upcoming %}<a href="/announcements/{{ item.slug }}/"><time datetime="{{ item.date }}">{{ item.dateDisplay }}</time>{{ item.title }}</a>{% endif %}
+                    <a data-announcement-date="{{ item.date }}" href="/announcements/{{ item.slug }}/"><time datetime="{{ item.date }}">{{ item.dateDisplay }}</time>{{ item.title }}</a>
                 {% endfor %}
+                <a class="nav-submenu-archive" href="/announcements/#archive-heading">Announcement Archive</a>
             </div>
         </div>
         <a href="https://www.kofc.org/what-we-do/insurance/" target="_blank" rel="noopener">Insurance</a>

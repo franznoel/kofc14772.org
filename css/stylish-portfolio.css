@@ -206,6 +206,10 @@ a {
     line-height: 1.25;
 }
 
+.nav-links .nav-submenu a[hidden] {
+    display: none;
+}
+
 .nav-links .nav-submenu a:hover,
 .nav-links .nav-submenu a:focus {
     color: var(--blue-dark);

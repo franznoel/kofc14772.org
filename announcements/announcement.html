@@ -46,6 +46,13 @@ footerBackLabel: Back to all announcements
                         <li><strong>{{ celebrant.name }}</strong><time datetime="{{ celebrant.dateISO }}">{{ celebrant.birthday }}</time></li>
                         {% endfor %}
                     </ul>
+                    {% if announcement.contributionNote %}
+                    <div class="birthday-contributions">
+                        <h3><i class="fa fa-gift" aria-hidden="true"></i> Food and Monetary Donations</h3>
+                        <p>{{ announcement.contributionNote }}</p>
+                        <p class="donation-thanks">{{ announcement.donationThanks }}</p>
+                    </div>
+                    {% endif %}
                 </section>
                 {% else %}
                 <section class="announcement-facts" aria-label="Announcement details">

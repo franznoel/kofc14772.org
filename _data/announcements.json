@@ -9,6 +9,8 @@
     "image": "/img/announcements/august-birthday-celebrants-2026.png",
     "imageAlt": "Happy Birthday greeting for the August celebrants of St. Genevieve Council 14772",
     "imageCaption": "Birthday greeting for our August celebrants",
+    "contributionNote": "Please coordinate with Bro. Mon De Guzman if you would like to donate food. All other members are encouraged to give monetary donations.",
+    "donationThanks": "Thank you to Bro. Rolly Maclang for the generous $100 food donation.",
     "celebrants": [
       { "name": "Augusto Caritos", "birthday": "August 1", "dateISO": "2026-08-01" },
       { "name": "Salvador Jarencio", "birthday": "August 8", "dateISO": "2026-08-08" },

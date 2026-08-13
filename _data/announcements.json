@@ -1,5 +1,27 @@
 [
   {
+    "slug": "august-birthday-celebrants-2026",
+    "date": "2026-08-31",
+    "dateDisplay": "August 2026",
+    "title": "Happy Birthday to Our August Celebrants",
+    "excerpt": "Happy birthday to our active council members celebrating their birthdays throughout August!",
+    "description": "St. Genevieve Council 14772 sends warm birthday wishes to all of our active members celebrating in August. May your special day and the year ahead be filled with faith, fellowship, happiness, and many blessings.",
+    "image": "/img/announcements/august-birthday-celebrants-2026.png",
+    "imageAlt": "Happy Birthday greeting for the August celebrants of St. Genevieve Council 14772",
+    "imageCaption": "Birthday greeting for our August celebrants",
+    "celebrants": [
+      { "name": "Augusto Caritos", "birthday": "August 1", "dateISO": "2026-08-01" },
+      { "name": "Salvador Jarencio", "birthday": "August 8", "dateISO": "2026-08-08" },
+      { "name": "Augie Madridejo", "birthday": "August 12", "dateISO": "2026-08-12" },
+      { "name": "Dominico Magtahas", "birthday": "August 13", "dateISO": "2026-08-13" },
+      { "name": "Renato Maylad", "birthday": "August 15", "dateISO": "2026-08-15" },
+      { "name": "Rafael Garcia", "birthday": "August 17", "dateISO": "2026-08-17" },
+      { "name": "Lorenzo Mutia", "birthday": "August 18", "dateISO": "2026-08-18" },
+      { "name": "Augusto Garcia", "birthday": "August 25", "dateISO": "2026-08-25" },
+      { "name": "Rodolfo Leoncio", "birthday": "August 30", "dateISO": "2026-08-30" }
+    ]
+  },
+  {
     "slug": "photo-op-august-2026",
     "date": "2026-08-16",
     "dateDisplay": "August 16, 2026",

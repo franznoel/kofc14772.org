@@ -38,6 +38,16 @@ footerBackLabel: Back to all announcements
                 <h1>{{ announcement.title }}</h1>
                 <p class="announcement-lead">{{ announcement.description }}</p>
 
+                {% if announcement.celebrants %}
+                <section class="announcement-facts birthday-celebrants" aria-labelledby="celebrants-heading">
+                    <h2 id="celebrants-heading">August Celebrants</h2>
+                    <ul>
+                        {% for celebrant in announcement.celebrants %}
+                        <li><strong>{{ celebrant.name }}</strong><time datetime="{{ celebrant.dateISO }}">{{ celebrant.birthday }}</time></li>
+                        {% endfor %}
+                    </ul>
+                </section>
+                {% else %}
                 <section class="announcement-facts" aria-label="Announcement details">
                     <h2>Event details</h2>
                     <div>
@@ -53,11 +63,12 @@ footerBackLabel: Back to all announcements
                         <ul>{% for contact in announcement.contacts %}<li>{{ contact }}</li>{% endfor %}</ul>
                     </div>{% endif %}
                 </section>
+                {% endif %}
             </div>
 
             <figure class="announcement-poster">
                 <img src="{{ announcement.image }}" alt="{{ announcement.imageAlt }}">
-                <figcaption>Official event flyer</figcaption>
+                <figcaption>{{ announcement.imageCaption | default: "Official event flyer" }}</figcaption>
             </figure>
         </article>
     </main>

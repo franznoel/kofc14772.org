@@ -1,0 +1,45 @@
+---
+title: Page Not Found | St. Genevieve Council 14772
+description: The requested page could not be found.
+footerBackHref: "/"
+footerBackLabel: Back to home
+permalink: 404.html
+---
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ description }}">
+    <meta name="robots" content="noindex">
+    <title>{{ title }}</title>
+    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,900" rel="stylesheet" type="text/css">
+    <link href="/css/stylish-portfolio.css" rel="stylesheet">
+</head>
+
+<body class="not-found-page">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="not-found-header">
+        {% include "site-nav.html" %}
+    </header>
+
+    <main id="main" class="not-found-main">
+        <div class="container not-found-content">
+            <p class="not-found-code" aria-hidden="true">404</p>
+            <p class="eyebrow">Page not found</p>
+            <h1>We seem to have taken a wrong turn.</h1>
+            <p class="not-found-copy">The page you’re looking for may have moved, or the address may be incorrect. Let’s get you back to familiar ground.</p>
+            <div class="not-found-actions">
+                <a class="button primary" href="/"><i class="fa fa-home" aria-hidden="true"></i> Return home</a>
+                <a class="button secondary" href="/events/">View upcoming events</a>
+            </div>
+        </div>
+    </main>
+
+    {% include "site-footer.html" %}
+</body>
+
+</html>

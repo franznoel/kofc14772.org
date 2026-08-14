@@ -805,6 +805,87 @@ summary {
     background: var(--ink);
 }
 
+.not-found-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: var(--blue-dark);
+}
+
+.not-found-header {
+    padding: 24px 0 0;
+    color: #fff;
+    background: var(--blue-dark);
+}
+
+.not-found-main {
+    position: relative;
+    isolation: isolate;
+    flex: 1;
+    display: grid;
+    place-items: center;
+    min-height: 610px;
+    padding: 72px 0 92px;
+    overflow: hidden;
+    color: #fff;
+    background:
+        linear-gradient(100deg, rgba(8, 20, 34, 0.97) 5%, rgba(13, 39, 70, 0.87) 58%, rgba(22, 61, 107, 0.66)),
+        url("../img/stgen-church-watercolor-hero.png") center / cover no-repeat;
+}
+
+.not-found-main::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(180deg, var(--blue-dark), transparent 22%, transparent 78%, var(--blue-dark));
+    pointer-events: none;
+}
+
+.not-found-content {
+    position: relative;
+    padding-right: min(38vw, 430px);
+}
+
+.not-found-code {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.08);
+    font-size: clamp(180px, 25vw, 360px);
+    font-weight: 900;
+    line-height: 0.7;
+    transform: translateY(-50%);
+    user-select: none;
+}
+
+.not-found-content .eyebrow {
+    color: var(--gold);
+}
+
+.not-found-content h1 {
+    max-width: 700px;
+    font-size: clamp(48px, 7vw, 82px);
+}
+
+.not-found-copy {
+    max-width: 610px;
+    margin-bottom: 30px;
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 22px;
+}
+
+.not-found-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.not-found-actions .button {
+    gap: 9px;
+}
+
 .programs-header {
     padding: 24px 0 80px;
     color: #fff;
@@ -1635,6 +1716,17 @@ summary {
 
     .value-grid {
         grid-template-columns: 1fr;
+    }
+
+    .not-found-content {
+        padding-right: 20px;
+    }
+
+    .not-found-code {
+        top: 0;
+        right: 20px;
+        font-size: clamp(120px, 36vw, 220px);
+        transform: translateY(-18%);
     }
 
     .announcement-detail {

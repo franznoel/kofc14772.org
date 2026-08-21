@@ -6,7 +6,17 @@
     <div class="nav-links">
         {% unless homePage %}<a href="/">Home</a>{% endunless %}
         <a href="/about/"{% if activePage == "about" %} aria-current="page"{% endif %}>About</a>
-        <a href="/programs/"{% if activePage == "programs" %} aria-current="page"{% endif %}>Programs</a>
+        <div class="nav-dropdown">
+            <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-controls="programs-submenu"{% if activePage == "programs" %} aria-current="page"{% endif %}>Programs <i class="fa fa-angle-down" aria-hidden="true"></i></button>
+            <div class="nav-submenu" id="programs-submenu" aria-label="Program categories">
+                <a class="nav-submenu-all" href="/programs/">All programs</a>
+                <span>Categories</span>
+                <a href="/programs/faith/">Faith</a>
+                <a href="/programs/family/">Family</a>
+                <a href="/programs/community/">Community</a>
+                <a href="/programs/life/">Life</a>
+            </div>
+        </div>
         <a href="/events/"{% if activePage == "events" %} aria-current="page"{% endif %}>Events</a>
         <a href="/membership/"{% if activePage == "membership" %} aria-current="page"{% endif %}>Membership</a>
         <a href="/knightline/"{% if activePage == "knightline" %} aria-current="page"{% endif %}>Knightline</a>

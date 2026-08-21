@@ -915,34 +915,38 @@ summary {
     font-size: 21px;
 }
 
-.program-tabs {
-    display: flex;
-    gap: 8px;
-    overflow-x: auto;
-    padding-bottom: 14px;
-    border-bottom: 1px solid var(--line);
+.program-category-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
 }
 
-.program-tabs button {
-    flex: 0 0 auto;
-    padding: 13px 18px;
+.program-category-grid a {
+    display: grid;
+    gap: 12px;
+    padding: 36px;
+    color: var(--muted);
+    background: #fff;
+    border: 1px solid var(--line);
+    border-top: 5px solid var(--gold);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    text-decoration: none;
+}
+
+.program-category-grid a:hover,
+.program-category-grid a:focus-visible {
+    border-top-color: var(--red);
+    transform: translateY(-2px);
+}
+
+.program-category-grid strong {
     color: var(--blue-dark);
-    background: transparent;
-    border: 0;
-    border-radius: 6px;
-    font: inherit;
-    font-weight: 900;
-    cursor: pointer;
+    font-size: 30px;
 }
 
-.program-tabs button:hover,
-.program-tabs button:focus-visible {
-    background: var(--cream);
-}
-
-.program-tabs button[aria-selected="true"] {
-    color: #fff;
-    background: var(--blue);
+.program-category-grid .eyebrow {
+    margin: 0;
 }
 
 .program-panel {
@@ -1934,6 +1938,10 @@ summary {
     .program-panel {
         min-height: 240px;
         padding: 32px 24px;
+    }
+
+    .program-category-grid {
+        grid-template-columns: 1fr;
     }
 
     .program-list {

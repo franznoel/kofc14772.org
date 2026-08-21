@@ -23,7 +23,7 @@ if (upcomingList && archiveList) {
         });
 }
 
-const announcementsSubmenu = document.querySelector(".nav-submenu");
+const announcementsSubmenu = document.querySelector("#announcements-submenu");
 
 if (announcementsSubmenu) {
     const archiveLink = announcementsSubmenu.querySelector(".nav-submenu-archive");

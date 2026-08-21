@@ -23,6 +23,18 @@ if (upcomingList && archiveList) {
         });
 }
 
-document.querySelectorAll(".nav-submenu [data-announcement-date]").forEach((link) => {
-    if (link.dataset.announcementDate < today) link.hidden = true;
-});
+const announcementsSubmenu = document.querySelector(".nav-submenu");
+
+if (announcementsSubmenu) {
+    const archiveLink = announcementsSubmenu.querySelector(".nav-submenu-archive");
+    const announcementLinks = Array.from(
+        announcementsSubmenu.querySelectorAll("[data-announcement-date]")
+    );
+
+    announcementLinks
+        .sort((a, b) => a.dataset.announcementDate.localeCompare(b.dataset.announcementDate))
+        .forEach((link) => {
+            link.hidden = link.dataset.announcementDate < today;
+            announcementsSubmenu.insertBefore(link, archiveLink);
+        });
+}

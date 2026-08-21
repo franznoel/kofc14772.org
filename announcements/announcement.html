@@ -7,7 +7,10 @@ permalink: "/announcements/{{ announcement.slug }}/index.html"
 eleventyComputed:
   title: "{{ announcement.title }} | Council 14772"
   description: "{{ announcement.excerpt }}"
+  seoImage: "{{ announcement.image }}"
+  seoImageAlt: "{{ announcement.imageAlt }}"
 activePage: announcements
+seoType: article
 footerBackHref: "/announcements/"
 footerBackLabel: Back to all announcements
 ---
@@ -17,8 +20,7 @@ footerBackLabel: Back to all announcements
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="{{ description }}">
-    <title>{{ title }}</title>
+{% include "seo-head.html" %}
     <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,900" rel="stylesheet" type="text/css">
     <link href="/css/stylish-portfolio.css" rel="stylesheet">

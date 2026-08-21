@@ -1,0 +1,47 @@
+{% assign canonicalUrl = site.url | append: page.url %}
+{% assign socialImage = seoImage | default: site.defaultImage %}
+{% assign socialImageUrl = site.url | append: socialImage %}
+    <meta name="description" content="{{ description }}">
+    <meta name="author" content="{{ site.organization }}">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="{{ canonicalUrl }}">
+
+    <meta property="og:site_name" content="{{ site.name }}">
+    <meta property="og:type" content="{{ seoType | default: 'website' }}">
+    <meta property="og:title" content="{{ title }}">
+    <meta property="og:description" content="{{ description }}">
+    <meta property="og:url" content="{{ canonicalUrl }}">
+    <meta property="og:image" content="{{ socialImageUrl }}">
+    <meta property="og:image:alt" content="{{ seoImageAlt | default: site.defaultImageAlt }}">
+    <meta property="og:locale" content="en_US">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ title }}">
+    <meta name="twitter:description" content="{{ description }}">
+    <meta name="twitter:image" content="{{ socialImageUrl }}">
+    <meta name="twitter:image:alt" content="{{ seoImageAlt | default: site.defaultImageAlt }}">
+
+    <title>{{ title }}</title>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "{{ site.organization }}",
+      "alternateName": "{{ site.name }}",
+      "url": "{{ site.url }}",
+      "logo": "{{ site.url }}{{ site.logo }}",
+      "image": "{{ site.url }}{{ site.defaultImage }}",
+      "description": "Knights of Columbus council serving St. Genevieve Parish and the Panorama City community.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "14061 Roscoe Blvd",
+        "addressLocality": "Panorama City",
+        "addressRegion": "CA",
+        "postalCode": "91402",
+        "addressCountry": "US"
+      },
+      "sameAs": [
+        "https://www.facebook.com/p/KOC-St-Genevieve-Council-14772-100084682736020/"
+      ]
+    }
+    </script>

@@ -1,0 +1,25 @@
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>{{ site.url }}/</loc><priority>1.0</priority></url>
+  <url><loc>{{ site.url }}/about/</loc><priority>0.8</priority></url>
+  <url><loc>{{ site.url }}/programs/</loc><priority>0.8</priority></url>
+  <url><loc>{{ site.url }}/events/</loc><priority>0.9</priority></url>
+  <url><loc>{{ site.url }}/membership/</loc><priority>0.9</priority></url>
+  <url><loc>{{ site.url }}/knightline/</loc><priority>0.8</priority></url>
+  <url>
+    <loc>{{ site.url }}/knightline/installation-of-officers-2026/</loc>
+    <lastmod>2026-08-16</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url><loc>{{ site.url }}/announcements/</loc><priority>0.8</priority></url>
+  {% for announcement in announcements %}<url>
+    <loc>{{ site.url }}/announcements/{{ announcement.slug }}/</loc>
+    <lastmod>{{ announcement.date }}</lastmod>
+    <priority>0.7</priority>
+  </url>
+  {% endfor %}
+</urlset>

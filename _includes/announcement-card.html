@@ -1,6 +1,6 @@
 <article class="announcement-card" data-announcement-date="{{ item.date }}">
     <a class="announcement-card-image" href="/announcements/{{ item.slug }}/">
-        <img src="{{ item.image }}" alt="{{ item.imageAlt }}" loading="lazy">
+        <img{% if item.imageFit == "contain" %} class="announcement-image-contain"{% endif %} src="{{ item.image }}" alt="{{ item.imageAlt }}" loading="lazy">
     </a>
     <div class="announcement-card-copy">
         <time datetime="{{ item.date }}">{{ item.dateDisplay }}</time>

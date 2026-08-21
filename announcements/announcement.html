@@ -38,7 +38,24 @@ footerBackLabel: Back to all announcements
                 <h1>{{ announcement.title }}</h1>
                 <p class="announcement-lead">{{ announcement.description }}</p>
 
-                {% if announcement.celebrants %}
+                {% if announcement.agenda %}
+                <section class="announcement-facts meeting-agenda" aria-labelledby="agenda-heading">
+                    <h2 id="agenda-heading">Meeting agenda</h2>
+                    <ol>
+                        {% for agendaItem in announcement.agenda %}
+                        <li>
+                            <div><strong>{{ agendaItem.item }}</strong>{% if agendaItem.owner %}<span>{{ agendaItem.owner }}</span>{% endif %}</div>
+                            {% if agendaItem.subitems %}
+                            <ol type="a">
+                                {% for subitem in agendaItem.subitems %}<li>{{ subitem }}</li>{% endfor %}
+                            </ol>
+                            {% endif %}
+                        </li>
+                        {% endfor %}
+                    </ol>
+                    {% if announcement.download %}<a class="agenda-download" href="{{ announcement.download }}" download><i class="fa fa-file-word-o" aria-hidden="true"></i> {{ announcement.downloadLabel }}</a>{% endif %}
+                </section>
+                {% elsif announcement.celebrants %}
                 <section class="announcement-facts birthday-celebrants" aria-labelledby="celebrants-heading">
                     <h2 id="celebrants-heading">August Celebrants</h2>
                     <ul>
@@ -74,7 +91,7 @@ footerBackLabel: Back to all announcements
             </div>
 
             <figure class="announcement-poster">
-                <img src="{{ announcement.image }}" alt="{{ announcement.imageAlt }}">
+                <img{% if announcement.imageFit == "contain" %} class="announcement-image-contain"{% endif %} src="{{ announcement.image }}" alt="{{ announcement.imageAlt }}">
                 <figcaption>{{ announcement.imageCaption | default: "Official event flyer" }}</figcaption>
             </figure>
         </article>

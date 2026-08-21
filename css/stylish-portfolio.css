@@ -1155,6 +1155,11 @@ summary {
     transition: transform 180ms ease;
 }
 
+.announcement-card-image img.announcement-image-contain {
+    padding: 56px;
+    object-fit: contain;
+}
+
 .announcement-card-image:hover img,
 .announcement-card-image:focus img {
     transform: scale(1.015);
@@ -1267,6 +1272,50 @@ summary {
     padding-left: 24px;
 }
 
+.meeting-agenda > ol {
+    display: grid;
+    gap: 16px;
+    margin: 0;
+    padding-left: 30px;
+    color: var(--blue-dark);
+}
+
+.meeting-agenda > ol > li {
+    padding-left: 6px;
+}
+
+.meeting-agenda li span {
+    display: block;
+    margin-top: 3px;
+    color: var(--muted);
+}
+
+.meeting-agenda li ol {
+    display: grid;
+    gap: 8px;
+    margin-top: 10px;
+    padding-left: 26px;
+    color: var(--muted);
+}
+
+.agenda-download {
+    display: inline-block;
+    justify-self: start;
+    margin-top: 12px;
+    padding: 12px 16px;
+    color: #fff;
+    background: var(--blue);
+    border-radius: 5px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.agenda-download:hover,
+.agenda-download:focus {
+    color: #fff;
+    background: var(--blue-dark);
+}
+
 .birthday-celebrants > ul {
     display: grid;
     gap: 10px;
@@ -1330,6 +1379,11 @@ summary {
 .announcement-poster img {
     width: 100%;
     border-radius: 5px;
+}
+
+.announcement-poster img.announcement-image-contain {
+    padding: 42px;
+    background: var(--cream);
 }
 
 .announcement-poster figcaption {
@@ -1916,6 +1970,10 @@ summary {
         min-height: 0;
         max-height: 520px;
         object-fit: contain;
+    }
+
+    .announcement-card-image img.announcement-image-contain {
+        padding: 38px;
     }
 
     .announcement-card-copy {

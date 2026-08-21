@@ -1,5 +1,57 @@
 [
   {
+    "slug": "planning-meeting-agenda-september-1-2026",
+    "date": "2026-09-01",
+    "dateDisplay": "September 1, 2026",
+    "title": "Planning Meeting Agenda",
+    "excerpt": "Council members are invited to review the agenda for the September 1, 2026 planning meeting.",
+    "description": "Knights of Columbus St. Genevieve Council 14772 will hold its planning meeting on September 1, 2026. Members may review the full agenda below and download the original document.",
+    "image": "/img/knights-of-columbus-logo.png",
+    "imageAlt": "Knights of Columbus emblem",
+    "imageFit": "contain",
+    "imageCaption": "Knights of Columbus St. Genevieve Council 14772",
+    "agenda": [
+      { "item": "Call to Order", "owner": "GK Jun Guinto" },
+      { "item": "Opening Prayer", "owner": "GK Jun Guinto" },
+      { "item": "Pledge of Allegiance", "owner": "DGK Bon Mendoza" },
+      { "item": "Attendance", "owner": "Bro. Cesar Guillermo" },
+      {
+        "item": "Items for discussion and approval",
+        "owner": "GK Jun Guinto",
+        "subitems": [
+          "Church Drive Kit Cards and Guide are on back order; ordered July 28, 2026. Membership Drive after every 10:30 a.m. Mass on the church premises. Use website link.",
+          "3rd Degree Exemplification on September 20, 2026, at 1:00 p.m. at the Lady of Grace in Encino.",
+          "Harrah’s Casino turnaround is scheduled for September 5, 2026 (Saturday). PGK Elnor Andal to discuss the attendee list (55 attendees), food and snacks, and a future turnaround.",
+          "Update on the Past Grand Knight Dinner/Dance for PGK Elnor C. Andal and all other PGKs on November 21, 2026 (Saturday), including the souvenir program and solicitation letter.",
+          "Christmas Party on December 13, 2026 — Bro. Augusto Caritos.",
+          "Caroling to be led by Bro. Ryan Amacanin and Bro. CJ Hernandez; dates TBD.",
+          "Bowling to be led by Bro. Rolly Maclang; date TBD."
+        ]
+      },
+      { "item": "Financial Secretary’s Report and submission of bills to the trustees, including the audit report", "owner": "Bro. Joe Acol" },
+      { "item": "Trustees’ Report — Review and approval of bills", "owner": "Bro. Filemon Taleon, Bro. Freddie Sotto, and PGK Elnor C. Andal" },
+      {
+        "item": "Faith in Action Committee’s Report",
+        "owner": "Program Director Bro. Bon Mendoza",
+        "subitems": [
+          "Faith Director — Bro. Dom Magtahas: update on Into the Breach, Rosary, Holy Hour, and S. Gifts.",
+          "Family Director — Bro. Augusto Caritos: update on Family Week, Family Prayer Night, and KCC.",
+          "Community Director — Bro. Elnor C. Andal: update on Free Throw, Soccer, Coats, and Wheel Cr.",
+          "Life Director — Bro. Don Calvo: update on Pregnancy Ctr, Novena Life, March Life, and Spcl Nds.",
+          "Membership Director — Bro. Primo Sumagaysay: update on recruitment and Kits.",
+          "Social Media Chairman — Bro. Bon Mendoza: update on newsletter, website, and Facebook."
+        ]
+      },
+      { "item": "Presentation and motion for approval of the Council Budget for Columbian Year 2026–2027 (not approved at the last Business Meeting)" },
+      { "item": "4th Degree matters: Installation of Officers and Call Outs", "owner": "Bro. Pol Bulaong" },
+      { "item": "Other possible events for the Columbian Year: Bowling Event", "owner": "Bro. Rolly Maclang" },
+      { "item": "Closing Prayer", "owner": "Bro. Paul Bulaong" },
+      { "item": "Meeting Adjourned" }
+    ],
+    "download": "/files/announcements/Planning-Meeting-Agenda-September-1-2026.docx",
+    "downloadLabel": "Download the original agenda (Word document)"
+  },
+  {
     "slug": "august-birthday-celebrants-2026",
     "date": "2026-08-31",
     "dateDisplay": "August 2026",

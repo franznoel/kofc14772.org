@@ -43,21 +43,14 @@ footerBackLabel: Back to Knightline
                 </div>
             </section>
 
-            <div class="knightline-heading">
-                <p class="eyebrow">Past Issues</p>
-                <h2>Explore the archive.</h2>
-                <p>Issues are arranged from newest to oldest. Newsletter readers open in a new tab.</p>
-            </div>
-
-            <div class="knightline-grid">
-                {% for issue in knightline %}
-                <a class="magazine-card" href="{{ issue.href }}" target="_blank" rel="noopener">
-                    <img src="{{ issue.image }}" alt="{{ issue.alt }}" loading="lazy">
-                    <span>{{ issue.title }}</span>
-                    <small>{% if issue.pdf %}PDF issue{% else %}Read issue{% endif %}</small>
-                </a>
-                {% endfor %}
-            </div>
+            <section class="knightline-archive-callout" aria-labelledby="archive-heading">
+                <div>
+                    <p class="eyebrow">Past Issues</p>
+                    <h2 id="archive-heading">The Knightline archives</h2>
+                    <p>Revisit council news, parish events, officer notes, and community life in issues published from 2009 through 2018.</p>
+                </div>
+                <a class="button primary" href="/knightline-archives/">Browse all issues <span aria-hidden="true">→</span></a>
+            </section>
         </div>
     </main>
     {% include "site-footer.html" %}

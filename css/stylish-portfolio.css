@@ -1530,6 +1530,34 @@ summary {
     font-size: 20px;
 }
 
+.knightline-archive-callout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 48px;
+    padding: 42px 46px;
+    background: var(--blue-dark);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.knightline-archive-callout h2 {
+    margin-bottom: 12px;
+    color: #fff;
+}
+
+.knightline-archive-callout p:last-child {
+    max-width: 680px;
+    margin-bottom: 0;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 19px;
+}
+
+.knightline-archive-callout .button {
+    flex: 0 0 auto;
+    margin: 0;
+}
+
 .knightline-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1840,6 +1868,12 @@ summary {
         grid-template-columns: 1fr;
     }
 
+    .knightline-archive-callout {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 28px;
+    }
+
     .knightline-feature > div {
         padding: 8px 18px 24px;
     }
@@ -1999,6 +2033,10 @@ summary {
 
     .knightline-main {
         padding: 58px 0 78px;
+    }
+
+    .knightline-archive-callout {
+        padding: 32px 24px;
     }
 
     .knightline-grid {

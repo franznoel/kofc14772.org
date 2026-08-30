@@ -645,6 +645,155 @@ summary {
     margin-top: 10px;
 }
 
+.membership-incentives {
+    margin-top: 96px;
+}
+
+.membership-incentives-intro {
+    max-width: 780px;
+    margin-bottom: 42px;
+}
+
+.membership-incentives-intro h2 {
+    color: var(--blue-dark);
+}
+
+.membership-incentives-intro > p:last-child {
+    margin-bottom: 0;
+    color: var(--muted);
+    font-size: 21px;
+}
+
+.incentive-section {
+    display: grid;
+    grid-template-columns: minmax(280px, 0.82fr) minmax(0, 1.18fr);
+    gap: 48px;
+    align-items: start;
+    padding: 44px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-top: 5px solid var(--gold);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.incentive-section + .incentive-section {
+    margin-top: 48px;
+}
+
+.incentive-image-wrap {
+    overflow: hidden;
+    background: var(--cream);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+}
+
+.incentive-image-wrap img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.incentive-details h3 {
+    margin-bottom: 24px;
+    color: var(--blue-dark);
+    font-size: 32px;
+}
+
+.incentive-details > p,
+.incentive-offer p,
+.reward-levels span {
+    color: var(--muted);
+}
+
+.incentive-offer {
+    padding: 22px 0;
+    border-top: 1px solid var(--line);
+}
+
+.incentive-offer h4 {
+    margin: 0 0 8px;
+    color: var(--blue-dark);
+    font-size: 21px;
+}
+
+.incentive-offer p {
+    margin: 0;
+}
+
+.incentive-offer p + p {
+    margin-top: 10px;
+}
+
+.incentive-details .incentive-note {
+    margin: 4px 0 0;
+    padding: 14px 16px;
+    color: var(--blue-dark);
+    background: var(--cream);
+    border-left: 4px solid var(--gold);
+    border-radius: 4px;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.incentive-note i {
+    margin-right: 6px;
+    color: var(--blue);
+}
+
+.reward-levels {
+    margin: 24px 0 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: reward-level;
+}
+
+.reward-levels li {
+    position: relative;
+    min-height: 58px;
+    padding: 0 0 22px 72px;
+    counter-increment: reward-level;
+}
+
+.reward-levels li + li {
+    padding-top: 22px;
+    border-top: 1px solid var(--line);
+}
+
+.reward-levels li::before {
+    content: counter(reward-level);
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    color: #fff;
+    background: var(--red);
+    border-radius: 50%;
+    font-size: 22px;
+    font-weight: 900;
+}
+
+.reward-levels li + li::before {
+    top: 22px;
+}
+
+.reward-levels strong,
+.reward-levels span {
+    display: block;
+}
+
+.reward-levels strong {
+    color: var(--blue-dark);
+    font-size: 18px;
+}
+
+.reward-levels span {
+    margin-top: 5px;
+}
+
 .dues-card {
     padding: 36px;
     background: #fff;
@@ -1830,6 +1979,7 @@ summary {
     .officers-layout,
     .join-panel,
     .membership-layout,
+    .incentive-section,
     .contact-section {
         grid-template-columns: 1fr;
     }

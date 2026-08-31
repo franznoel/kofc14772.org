@@ -63,12 +63,16 @@
     "date": "2026-09-01",
     "dateDisplay": "September 1, 2026",
     "title": "Planning Meeting Agenda",
-    "excerpt": "Council members are invited to review the agenda for the September 1, 2026 planning meeting.",
-    "description": "Knights of Columbus St. Genevieve Council 14772 will hold its planning meeting on September 1, 2026. Members may review the full agenda below and download the original document.",
+    "excerpt": "Council members are invited to the September 1, 2026 planning meeting at 9:00 a.m. in the Conference Room.",
+    "description": "Knights of Columbus St. Genevieve Council 14772 will hold its planning meeting at 9:00 a.m. on September 1, 2026, in the Conference Room. Members may review the full agenda below and download the original document.",
     "image": "/img/knights-of-columbus-logo.png",
     "imageAlt": "Knights of Columbus emblem",
     "imageFit": "contain",
     "imageCaption": "Knights of Columbus St. Genevieve Council 14772",
+    "schedule": [
+      "Tuesday, September 1, 2026, at 9:00 a.m."
+    ],
+    "location": "Conference Room",
     "agenda": [
       { "item": "Call to Order", "owner": "GK Jun Guinto" },
       { "item": "Opening Prayer", "owner": "GK Jun Guinto" },

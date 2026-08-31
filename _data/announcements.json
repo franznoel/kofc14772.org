@@ -1,5 +1,24 @@
 [
   {
+    "slug": "september-birthday-celebrants-2026",
+    "date": "2026-09-30",
+    "dateDisplay": "September 2026",
+    "title": "Happy Birthday to Our September Celebrants",
+    "excerpt": "Happy birthday to our council members celebrating their birthdays throughout September!",
+    "description": "St. Genevieve Council 14772 sends warm birthday wishes to all of our members celebrating in September. May your special day and the year ahead be filled with faith, fellowship, happiness, and many blessings.",
+    "image": "/img/announcements/september-birthday-celebrants-2026.png",
+    "imageAlt": "Happy Birthday greeting for the September celebrants of St. Genevieve Council 14772",
+    "imageCaption": "Birthday greeting for our September celebrants",
+    "celebrantsHeading": "September Celebrants",
+    "celebrants": [
+      { "name": "Sis Tess Torres", "birthday": "September 16", "dateISO": "2026-09-16" },
+      { "name": "Sis Claudine Guinto", "birthday": "September 17", "dateISO": "2026-09-17" },
+      { "name": "Bro. Freddie Sotto", "birthday": "September 19", "dateISO": "2026-09-19" },
+      { "name": "Sis Mae De Guzman", "birthday": "September 24", "dateISO": "2026-09-24" },
+      { "name": "Bro. Henry Osio", "birthday": "September 25", "dateISO": "2026-09-25" }
+    ]
+  },
+  {
     "slug": "installation-of-assembly-officers-2026",
     "date": "2026-09-06",
     "dateDisplay": "September 6, 2026",

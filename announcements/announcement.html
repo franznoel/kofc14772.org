@@ -59,7 +59,7 @@ footerBackLabel: Back to all announcements
                 </section>
                 {% elsif announcement.celebrants %}
                 <section class="announcement-facts birthday-celebrants" aria-labelledby="celebrants-heading">
-                    <h2 id="celebrants-heading">August Celebrants</h2>
+                    <h2 id="celebrants-heading">{{ announcement.celebrantsHeading | default: "August Celebrants" }}</h2>
                     <ul>
                         {% for celebrant in announcement.celebrants %}
                         <li><strong>{{ celebrant.name }}</strong><time datetime="{{ celebrant.dateISO }}">{{ celebrant.birthday }}</time></li>

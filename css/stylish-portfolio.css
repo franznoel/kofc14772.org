@@ -1245,6 +1245,18 @@ summary {
     gap: 16px;
 }
 
+.events-section {
+    margin-top: 72px;
+}
+
+.events-section .events-intro {
+    margin-bottom: 28px;
+}
+
+.rosary-schedule .event-date strong {
+    font-size: 24px;
+}
+
 .event-card {
     display: grid;
     grid-template-columns: 150px minmax(0, 1fr);

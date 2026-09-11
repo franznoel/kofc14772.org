@@ -1,0 +1,60 @@
+---
+title: Photo Gallery | St. Genevieve Knights of Columbus Council 14772
+description: Photos from the life, worship, and brotherhood of Knights of Columbus St. Genevieve Council 14772.
+activePage: gallery
+footerBackHref: "#main"
+footerBackLabel: Back to photo gallery
+---
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+{% include "seo-head.html" %}
+    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,900" rel="stylesheet" type="text/css">
+    <link href="/css/stylish-portfolio.css" rel="stylesheet">
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="programs-header gallery-header">
+        {% include "site-nav.html" %}
+
+        <div class="programs-title container">
+            <p class="eyebrow">Council Life</p>
+            <h1>Photo Gallery</h1>
+            <p>Moments of faith, service, and brotherhood from St. Genevieve Council 14772.</p>
+        </div>
+    </header>
+
+    <main id="main" class="gallery-main">
+        <div class="container">
+            <div class="gallery-intro">
+                <p class="eyebrow">Our Photo Collection</p>
+                <h2>Together in faith and service.</h2>
+                <p>Select any photograph to view the full-size image.</p>
+            </div>
+
+            <div class="photo-grid">
+                {% for photo in gallery %}
+                    <figure class="photo-card{% if photo.featured %} photo-card-featured{% endif %}">
+                        <a href="{{ photo.src }}" aria-label="View full-size photo: {{ photo.title }}">
+                            <img src="{{ photo.src }}" alt="{{ photo.alt }}"{% unless forloop.first %} loading="lazy"{% endunless %}>
+                        </a>
+                        <figcaption>
+                            <h3>{{ photo.title }}</h3>
+                            <p>{{ photo.caption }}{% if photo.year %} <span>{{ photo.year }}</span>{% endif %}</p>
+                        </figcaption>
+                    </figure>
+                {% endfor %}
+            </div>
+        </div>
+    </main>
+
+    {% include "site-footer.html" %}
+</body>
+
+</html>

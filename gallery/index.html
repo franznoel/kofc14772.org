@@ -41,7 +41,7 @@ footerBackLabel: Back to photo gallery
             <div class="photo-grid">
                 {% for photo in gallery %}
                     <figure class="photo-card{% if photo.featured %} photo-card-featured{% endif %}">
-                        <a href="{{ photo.src }}" aria-label="View full-size photo: {{ photo.title }}">
+                        <a class="photo-lightbox-trigger" href="{{ photo.src }}" data-photo-title="{{ photo.title }}" data-photo-caption="{{ photo.caption }}{% if photo.year %} {{ photo.year }}{% endif %}" aria-label="View full-size photo: {{ photo.title }}">
                             <img src="{{ photo.src }}" alt="{{ photo.alt }}"{% unless forloop.first %} loading="lazy"{% endunless %}>
                         </a>
                         <figcaption>
@@ -52,9 +52,21 @@ footerBackLabel: Back to photo gallery
                 {% endfor %}
             </div>
         </div>
+
+        <dialog class="photo-lightbox" aria-labelledby="photo-lightbox-title">
+            <div class="photo-lightbox-panel">
+                <button class="photo-lightbox-close" type="button" aria-label="Close full-size photo"><i class="fa fa-times" aria-hidden="true"></i></button>
+                <img class="photo-lightbox-image" src="" alt="">
+                <div class="photo-lightbox-caption">
+                    <h2 id="photo-lightbox-title"></h2>
+                    <p></p>
+                </div>
+            </div>
+        </dialog>
     </main>
 
     {% include "site-footer.html" %}
+    <script src="/js/photo-gallery.js"></script>
 </body>
 
 </html>

@@ -1335,6 +1335,30 @@ summary {
     font-weight: 900;
 }
 
+.photo-card .photo-source-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    width: auto;
+    margin-top: 1rem;
+    padding: 0.7rem 1rem;
+    overflow: visible;
+    background: var(--gold);
+    border-radius: 4px;
+    color: var(--blue-dark);
+    font-weight: 700;
+    line-height: 1.2;
+    text-decoration: none;
+}
+
+.photo-card .photo-source-link:hover,
+.photo-card .photo-source-link:focus {
+    background: #f4ca62;
+    color: var(--blue-dark);
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+}
+
 body.lightbox-open {
     overflow: hidden;
 }

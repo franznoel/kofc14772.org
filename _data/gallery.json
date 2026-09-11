@@ -1,45 +1,12 @@
 [
   {
-    "src": "/img/officers-2026-2027-themed-hero.webp",
-    "alt": "Newly installed officers, directors, and members of St. Genevieve Council 14772 gathered with Father Lawrence Santos inside the church",
-    "title": "Brotherhood, Serving with Purpose",
-    "caption": "Newly installed officers, directors, and members for Columbian Year 2026–2027.",
+    "src": "/img/gallery/california-journal-september-4-2026-page-12.png",
+    "alt": "Page 12 of the September 4–10, 2026 California Journal featuring the article Knights of Columbus Council 14772 Inducts New Officers",
+    "title": "Council 14772 Inducts New Officers",
+    "caption": "Featured in California Journal for Filipino Americans, September 4–10, 2026, page 12.",
     "year": "2026",
-    "featured": true
-  },
-  {
-    "src": "/img/stgen-church.jpeg",
-    "alt": "Exterior of St. Genevieve Catholic Church beneath a clear blue sky",
-    "title": "St. Genevieve Catholic Church",
-    "caption": "The council’s parish home in Panorama City, California.",
-    "year": "2025"
-  },
-  {
-    "src": "/img/stgen-altar.webp",
-    "alt": "Sanctuary and altar of St. Genevieve Catholic Church decorated for Christmas",
-    "title": "Christmas at St. Genevieve",
-    "caption": "The parish sanctuary decorated for the Christmas season.",
-    "year": ""
-  },
-  {
-    "src": "/img/gallery/2026-officers-induction-group.png",
-    "alt": "Knights of Columbus Council 14772 officers gathered with clergy at St. Genevieve Catholic Church",
-    "title": "2026–2027 Officers Induction",
-    "caption": "Council officers, directors, and previous officers following the induction ceremony.",
-    "year": "2026"
-  },
-  {
-    "src": "/img/gallery/2026-gavel-handoff.png",
-    "alt": "Past Grand Knight Elnor Andal handing the council gavel to Grand Knight Ceferino Guinto Jr.",
-    "title": "Passing of the Gavel",
-    "caption": "Past Grand Knight Elnor Andal passes the gavel to Grand Knight Ceferino Guinto Jr.",
-    "year": "2026"
-  },
-  {
-    "src": "/files/pdfs/kocstory.JPG",
-    "alt": "Members of St. Genevieve Council 14772 standing together outside the church",
-    "title": "Council Brotherhood",
-    "caption": "A photograph from the council’s historical Knightline collection.",
-    "year": ""
+    "featured": true,
+    "sourceUrl": "https://caljournal.com/news.php?img=2026/Sept04-26&page=12",
+    "sourceLabel": "View the original issue page"
   }
 ]

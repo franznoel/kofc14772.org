@@ -33,9 +33,9 @@ footerBackLabel: Back to photo gallery
     <main id="main" class="gallery-main">
         <div class="container">
             <div class="gallery-intro">
-                <p class="eyebrow">Our Photo Collection</p>
-                <h2>Together in faith and service.</h2>
-                <p>Select any photograph to view the full-size image.</p>
+                <p class="eyebrow">In the News</p>
+                <h2>Council 14772 in California Journal.</h2>
+                <p>Select the newspaper page to view it at full size.</p>
             </div>
 
             <div class="photo-grid">
@@ -47,6 +47,9 @@ footerBackLabel: Back to photo gallery
                         <figcaption>
                             <h3>{{ photo.title }}</h3>
                             <p>{{ photo.caption }}{% if photo.year %} <span>{{ photo.year }}</span>{% endif %}</p>
+                            {% if photo.sourceUrl %}
+                                <a class="photo-source-link" href="{{ photo.sourceUrl }}" target="_blank" rel="noopener noreferrer">{{ photo.sourceLabel }} <i class="fa fa-external-link" aria-hidden="true"></i></a>
+                            {% endif %}
                         </figcaption>
                     </figure>
                 {% endfor %}

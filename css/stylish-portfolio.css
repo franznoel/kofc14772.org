@@ -19,6 +19,16 @@ html {
     scroll-behavior: smooth;
 }
 
+/* Keep keyboard focus highly visible against both light and dark sections. */
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+    outline: 3px solid #f6c95f;
+    outline-offset: 3px;
+}
+
+main:focus {
+    outline: none;
+}
+
 body {
     margin: 0;
     color: var(--ink);
@@ -196,9 +206,12 @@ a {
     box-shadow: var(--shadow);
 }
 
-.nav-dropdown:hover .nav-submenu,
 .nav-dropdown.is-open .nav-submenu {
     display: grid;
+}
+
+.nav-submenu[hidden] {
+    display: none;
 }
 
 .nav-submenu > span {
@@ -2532,6 +2545,21 @@ body.lightbox-open {
 
     .reader-pages {
         gap: 18px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
     }
 }
 

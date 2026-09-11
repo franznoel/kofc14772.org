@@ -1,5 +1,5 @@
-# kofc14772.org
-Knights of Columbus 14772.org
+# stgenknights.com
+Knights of Columbus St. Genevieve Council 14772
 
 ## Local development
 
@@ -33,7 +33,7 @@ Pages source must be set to **GitHub Actions**.
 ### Steps To Code and Deploy
 
 #### Step 1. Download the codes from Github
-  - git clone git@github.com:fritzdenim/kofc14772.org.git
+  - git clone git@github.com:tanglao-interactive/stgenknights.git
 #### Step 2. Start coding
   - Open Visual Studio Code
   - Open the folder where you downloaded the codes 
